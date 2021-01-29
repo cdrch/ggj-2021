@@ -5,13 +5,13 @@ using UnityEngine;
 public class BugController : MonoBehaviour
 {
 
-    public float speed = 1f;
+    public float speed = 1f; // Base speed multiplier (can be modified)
 
     public float tiles = 0f;
 
-    public float difficulty = 0f;
+    public float difficultyfactor = 10f; // Base speed divisor (can be modified)
 
-    public float difficultyfactor = 10f;
+    public float pathdistance = 0f; // Limit distance from spawn point
 
     private Vector2 movement;
 
@@ -26,18 +26,20 @@ public class BugController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (tiles < 50)
-        {
 
-            difficulty = tiles / difficultyfactor;
-            speed *= difficulty;
-        }
-        else
-        {
-            speed = speed * 50 / difficultyfactor;
-        }
+            if (tiles < 50)
+            {
+                speed *= tiles / difficultyfactor;
+                pathdistance = Random.Range(tiles/5, tiles/5 + 3);
+            }
+            else
+            {
+                speed *= 50 / difficultyfactor;
+                pathdistance = Random.Range(3, 13);
+            }
         movement.x = speed;
         movement.y = speed;
+
     }
 
     // Update is called once per frame
