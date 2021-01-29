@@ -32,7 +32,7 @@ public class TreeTrunk : MonoBehaviour
             SpawnPart();
         }
     }
-
+    
     // Update is called once per frame
     void Update()
     {
