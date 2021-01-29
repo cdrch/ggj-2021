@@ -8,10 +8,14 @@ public class PlayerController : MonoBehaviour
 
     private Vector2 movementInput;
 
+    private bool onTree;
+
+    private Rigidbody2D rb;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -26,7 +30,11 @@ public class PlayerController : MonoBehaviour
         movementInput.x = Input.GetAxis("Horizontal");
         movementInput.y = Input.GetAxis("Vertical");
 
+
         // Add normalized movement to position
-        transform.position += (Vector3)movementInput.normalized * speed * Time.deltaTime;
+        Vector3 movement = (Vector3)movementInput.normalized * speed * Time.deltaTime;
+        //transform.position += movement;
+
+        rb.MovePosition(transform.position + movement);
     }
 }

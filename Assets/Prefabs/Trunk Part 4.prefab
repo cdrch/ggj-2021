@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3209407923716753253}
   m_Layer: 0
   m_Name: Sprite
-  m_TagString: Untagged
+  m_TagString: Tree
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -140,7 +140,7 @@ GameObject:
   - component: {fileID: 9032471152487743710}
   m_Layer: 0
   m_Name: Trunk Part 4
-  m_TagString: Untagged
+  m_TagString: Tree
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 5920606773777628159}
   - component: {fileID: 747500288766129433}
-  - component: {fileID: 3669751396088310032}
+  - component: {fileID: 8455754701240628907}
   m_Layer: 0
   m_Name: Sprite
-  m_TagString: Untagged
+  m_TagString: Tree
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -82,7 +82,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!60 &3669751396088310032
+--- !u!60 &8455754701240628907
 PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -148,7 +148,7 @@ GameObject:
   - component: {fileID: 3208818491825979049}
   m_Layer: 0
   m_Name: Trunk Part 1
-  m_TagString: Untagged
+  m_TagString: Tree
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
