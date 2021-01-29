@@ -20,7 +20,7 @@ public class BugController : MonoBehaviour
     private void Awake()
     {
         // Get number of tiles spawned this run
-        tiles = GameObject.Find("Tree").GetComponent<TreeTrunk>().spawnCount;
+        tiles = GameObject.Find("Trunk").GetComponent<TreeTrunk>().spawnCount;
     }
 
     // Start is called before the first frame update

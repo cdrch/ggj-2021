@@ -402,6 +402,7 @@ MonoBehaviour:
   distanceBeforeLoadingNextPart: 50
   initialPartsToSpawn: 3
   maxPartsToSpawn: 10
+  spawnCount: 0
 --- !u!114 &1388111854
 MonoBehaviour:
   m_ObjectHideFlags: 0
