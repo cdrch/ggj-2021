@@ -13,6 +13,8 @@ public class TreeTrunk : MonoBehaviour
 
     public int initialPartsToSpawn = 3;
     public int maxPartsToSpawn = 10;
+    public int spawnCount = 0;
+
     private List<Transform> spawnedParts;
 
     private Vector2 nextOffset = Vector2.zero;
@@ -49,6 +51,8 @@ public class TreeTrunk : MonoBehaviour
         nextOffset = new Vector2(part.position.x, part.position.y + prefabHeight);
 
         spawnedParts.Add(part);
+
+        spawnCount += 1;
 
         if (spawnedParts.Count > maxPartsToSpawn)
         {
