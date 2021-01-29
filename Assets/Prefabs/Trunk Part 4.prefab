@@ -10,10 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 287091003264484744}
   - component: {fileID: 6597329593846926190}
-  - component: {fileID: 3209407923716753253}
   m_Layer: 0
   m_Name: Sprite
-  m_TagString: Untagged
+  m_TagString: Tree
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -82,52 +81,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!60 &3209407923716753253
-PolygonCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2263023778134932939}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 4.5859375, y: 4.9375}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: -2.2929688, y: 2.46875}
-      - {x: -2.2929688, y: 2.0625}
-      - {x: -2.2773438, y: 1.9453125}
-      - {x: -2.2929688, y: 1.9140625}
-      - {x: -2.2929688, y: 1.53125}
-      - {x: -2.2851562, y: 1.4375}
-      - {x: -2.2929688, y: 1.3984375}
-      - {x: -2.2929688, y: -0.0078125}
-      - {x: -2.2617188, y: -0.2890625}
-      - {x: -2.1914062, y: -0.4375}
-      - {x: -2.1445312, y: -1.2421875}
-      - {x: -2.1835938, y: -1.3125}
-      - {x: -2.2070312, y: -1.3671875}
-      - {x: -2.2382812, y: -1.4609375}
-      - {x: -2.2617188, y: -1.578125}
-      - {x: -2.2695312, y: -1.625}
-      - {x: -2.2773438, y: -2.0703125}
-      - {x: -2.2929688, y: -2.125}
-      - {x: -2.2929688, y: -2.46875}
-      - {x: 2.2929688, y: -2.46875}
-      - {x: 2.2929688, y: 2.46875}
 --- !u!1 &2632358457595992562
 GameObject:
   m_ObjectHideFlags: 0
@@ -140,7 +93,7 @@ GameObject:
   - component: {fileID: 9032471152487743710}
   m_Layer: 0
   m_Name: Trunk Part 4
-  m_TagString: Untagged
+  m_TagString: Tree
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -157,6 +110,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 287091003264484744}
+  - {fileID: 4705574062279515731}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -174,3 +128,60 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   side: 1
   col: {fileID: 0}
+--- !u!1 &9061525938248245668
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4705574062279515731}
+  - component: {fileID: 2045528857807661371}
+  m_Layer: 0
+  m_Name: Left Wall
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4705574062279515731
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9061525938248245668}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.5, y: 2.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7456317754537763773}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &2045528857807661371
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9061525938248245668}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 5}
+  m_EdgeRadius: 0
