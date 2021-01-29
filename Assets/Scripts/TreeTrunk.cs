@@ -4,20 +4,24 @@ using UnityEngine;
 
 public class TreeTrunk : MonoBehaviour
 {
-    public GameObject treeTrunkPartPrefab;
-    public GameObjectPool pool;
+    public GameObject[] treeTrunkParts;
+    public GameObjectPool leftTrunkPool;
+    public GameObjectPool rightTrunkPool;
 
-    public float prefabHeight;
+    public float prefabHeight = 4.9375f;
+    public float prefabHalfWidth = 4.5859375f / 2f;
 
     public float distanceBeforeLoadingNextPart = 50f;
 
-    public int initialPartsToSpawn = 3;
+    public int initialPartsToSpawn = 6;
     public int maxPartsToSpawn = 10;
     public int spawnCount = 0;
 
     private List<Transform> spawnedParts;
 
-    private Vector2 nextOffset = Vector2.zero;
+    private float nextOffsetYUp = 0f;
+    private float nextOffsetYDown = 0f; // TODO: use this so parts spawn and unspawn going back down as well
+    // Alternative: just leave a row of deadliness at the lowest current point if you try to go back?
 
     private Camera cam;
 
@@ -26,31 +30,35 @@ public class TreeTrunk : MonoBehaviour
     {
         cam = Camera.main;
         spawnedParts = new List<Transform>();
-        pool = GetComponent<GameObjectPool>();
+        leftTrunkPool = transform.Find("Left Trunk Parts").GetComponent<GameObjectPool>();
+        rightTrunkPool = transform.Find("Right Trunk Parts").GetComponent<GameObjectPool>();
         for (int i = 0; i < initialPartsToSpawn; i++)
         {
-            SpawnPart();
+            SpawnNextTrunkLayer();
         }
     }
     
     // Update is called once per frame
     void Update()
     {
-        if (nextOffset.y - cam.transform.position.y < distanceBeforeLoadingNextPart)
+        if (nextOffsetYUp - cam.transform.position.y < distanceBeforeLoadingNextPart)
         {
-            SpawnPart();
+            SpawnNextTrunkLayer();
         }
     }
 
-    private void SpawnPart()
+    private void SpawnNextTrunkLayer()
     {
-        Transform part = pool.GetNext();
+        Transform leftPart = leftTrunkPool.GetNext();
+        Transform rightPart = rightTrunkPool.GetNext();
 
-        part.position = nextOffset;
+        leftPart.position = new Vector2(-prefabHalfWidth, nextOffsetYUp);
+        rightPart.position = new Vector2(prefabHalfWidth, nextOffsetYUp);        
 
-        nextOffset = new Vector2(part.position.x, part.position.y + prefabHeight);
+        nextOffsetYUp = nextOffsetYUp + prefabHeight;
 
-        spawnedParts.Add(part);
+        spawnedParts.Add(leftPart);
+        spawnedParts.Add(rightPart);
 
         spawnCount += 1;
 
@@ -58,6 +66,18 @@ public class TreeTrunk : MonoBehaviour
         {
             spawnedParts[0].gameObject.SetActive(false);
             spawnedParts.RemoveAt(0);
+
+            spawnedParts[0].gameObject.SetActive(false);
+            spawnedParts.RemoveAt(0);
         }
     }
+}
+
+public enum TreePart
+{
+    None, // as this will be the default, this is just used so we can easily catch unassigned parts, which can be hard to catch in a randomly-generated game
+    TrunkLeft,
+    TrunkRight,
+    BranchLeft,
+    BranchRight
 }
