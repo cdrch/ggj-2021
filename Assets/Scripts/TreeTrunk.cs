@@ -21,8 +21,7 @@ public class TreeTrunk : MonoBehaviour
     public List<Transform> spawnedParts; // TODO: make this private again after debugging
 
     private float nextOffsetYUp = 0f;
-    private float nextOffsetYDown; // TODO: use this so parts spawn and unspawn going back down as well
-    // Alternative: just leave a row of deadliness at the lowest current point if you try to go back?
+    private float nextOffsetYDown;
 
     private Camera cam;
 
@@ -44,7 +43,7 @@ public class TreeTrunk : MonoBehaviour
         for (int i = 0; i < initialPartsToSpawn; i++)
         {
             AddNewLayerGoingUp();
-            AddNewLayerGoingDown();
+            CheckIfOffsetDownIsCloseEnoughToNeedANewLayer();
         }
     }
     
@@ -90,7 +89,7 @@ public class TreeTrunk : MonoBehaviour
 
     private void CheckIfOffsetDownIsCloseEnoughToNeedANewLayer()
     {
-        if (cam.transform.position.y - distanceBeforeLoadingNextPart <= nextOffsetYDown + prefabHeight)
+        if (cam.transform.position.y - distanceBeforeLoadingNextPart <= nextOffsetYDown + prefabHeight && nextOffsetYDown >= 0f)
         {
             //Debug.Log("no " + cam.transform.position.y + " - " + distanceBeforeLoadingNextPart + " = " + (cam.transform.position.y - distanceBeforeLoadingNextPart) + " | " + nextOffsetYDown + " + " + prefabHeight + " = " + (nextOffsetYDown + prefabHeight));
             AddNewLayerGoingDown();
