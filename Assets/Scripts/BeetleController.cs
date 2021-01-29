@@ -71,17 +71,16 @@ public class BeetleController : MonoBehaviour
     {
         if (!collision.CompareTag("Player"))
         {
-            // Re-randomize angle
-            angleRandomizer = Random.Range((float)0.0, (float)1.0);
-            movement.x = speed * directionMultiplierx * angleRandomizer;
-            movement.y = speed * directionMultipliery * (1.0f - angleRandomizer);
-            // Invert direction
+            // Re-randomize angle and invert direction
+            angleRandomizer = Random.Range((float)0.75, (float)1.25);
             movement *= -1;
+            movement.x *= angleRandomizer;
+            movement.y *= (2.0f - angleRandomizer);
             movement.Normalize();
             return;
         }
 
-        Health h = collision.GetComponent<Health>();
+        /*Health h = collision.GetComponent<Health>();
 
         if (h == null)
         {
@@ -90,7 +89,7 @@ public class BeetleController : MonoBehaviour
         }
 
         h.TakeDamage(1);
-
+*/
         //Destroy(gameObject); // TODO: replace with pooling later
 
     }
