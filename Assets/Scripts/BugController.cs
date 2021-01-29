@@ -39,6 +39,7 @@ public class BugController : MonoBehaviour
             }
         movement.x = speed;
         movement.y = speed;
+
     }
 
     // Update is called once per frame
