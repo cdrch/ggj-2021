@@ -417,10 +417,11 @@ MonoBehaviour:
   leftTrunkPool: {fileID: 0}
   rightTrunkPool: {fileID: 0}
   prefabHeight: 4.9375
+  prefabWidth: 4.5859375
   prefabHalfWidth: 2.2929688
-  distanceBeforeLoadingNextPart: 25
-  initialPartsToSpawn: 10
-  maxPartsToSpawn: 20
+  distanceBeforeLoadingNextPart: 30
+  initialPartsToSpawn: 6
+  maxPartsToSpawn: 10
   spawnCount: 0
 --- !u!1 &1721900335
 GameObject:
