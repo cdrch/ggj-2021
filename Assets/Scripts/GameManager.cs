@@ -13,11 +13,13 @@ public class GameManager : MonoBehaviour
     // each level, elevator speed increases by elevatorSpeed * elevatorSpeedChangePerDifficultyLevel
 
     private Camera cam;
-
+    private GameObject tree;
+    private TreeTrunk treeTrunk;
 
     // Start is called before the first frame update
     void Start()
     {
+        // Singleton pattern
         if (instance != null)
         {
             Destroy(gameObject);
@@ -26,7 +28,11 @@ public class GameManager : MonoBehaviour
 
         instance = this;
 
+        // caching expensive operations
         cam = Camera.main;
+        tree = GameObject.Find("Tree");
+        treeTrunk = tree.GetComponentInChildren<TreeTrunk>();
+
     }
 
     // Update is called once per frame
