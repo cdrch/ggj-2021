@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TreeTrunk : MonoBehaviour
 {
-    public GameObject[] treeTrunkParts;
+    public GameObject treeTrunkBase;
     public GameObjectPool leftTrunkPool;
     public GameObjectPool rightTrunkPool;
 
@@ -32,6 +32,11 @@ public class TreeTrunk : MonoBehaviour
         spawnedParts = new List<Transform>();
         leftTrunkPool = transform.Find("Left Trunk Parts").GetComponent<GameObjectPool>();
         rightTrunkPool = transform.Find("Right Trunk Parts").GetComponent<GameObjectPool>();
+
+        // Place the trunk base
+        Instantiate(treeTrunkBase, Vector3.zero, Quaternion.identity);
+
+        // Place the initial trunk pieces
         for (int i = 0; i < initialPartsToSpawn; i++)
         {
             SpawnNextTrunkLayer();
@@ -79,5 +84,6 @@ public enum TreePart
     TrunkLeft,
     TrunkRight,
     BranchLeft,
-    BranchRight
+    BranchRight,
+    TrunkBase
 }
