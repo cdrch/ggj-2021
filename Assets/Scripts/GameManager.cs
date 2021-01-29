@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -30,8 +31,11 @@ public class GameManager : MonoBehaviour
 
         // caching expensive operations
         cam = Camera.main;
-        tree = GameObject.Find("Tree");
-        treeTrunk = tree.GetComponentInChildren<TreeTrunk>();
+        if (SceneManager.GetActiveScene().buildIndex == 1)
+        {
+            tree = GameObject.Find("Tree");
+            treeTrunk = tree.GetComponentInChildren<TreeTrunk>();
+        }        
 
     }
 
@@ -39,5 +43,15 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void ActivateGameScene()
+    {
+        SceneManager.LoadScene(1);
+    }
+
+    public void ExitGame()
+    {
+        Application.Quit();
     }
 }
