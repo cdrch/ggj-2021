@@ -21,20 +21,26 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        GetInput();
+        GetInput();        
+    }
+
+    private void FixedUpdate()
+    {
+        Move();
     }
 
     private void GetInput()
     {
         // Get movement input from axes
         movementInput.x = Input.GetAxis("Horizontal");
-        movementInput.y = Input.GetAxis("Vertical");
+        movementInput.y = Input.GetAxis("Vertical");        
+    }
 
-
+    private void Move()
+    {
         // Add normalized movement to position
-        Vector3 movement = (Vector3)movementInput.normalized * speed * Time.deltaTime;
-        //transform.position += movement;
-
-        rb.MovePosition(transform.position + movement);
+        Vector2 movement = movementInput.normalized * speed;
+        
+        rb.MovePosition(rb.position + movement * Time.fixedDeltaTime);
     }
 }
