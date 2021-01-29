@@ -419,7 +419,8 @@ MonoBehaviour:
   prefabHeight: 4.9375
   prefabWidth: 4.5859375
   prefabHalfWidth: 2.2929688
-  distanceBeforeLoadingNextPart: 30
+  spawnDistance: 15
+  despawnDistance: 20
   initialPartsToSpawn: 6
   maxPartsToSpawn: 10
   spawnCount: 0

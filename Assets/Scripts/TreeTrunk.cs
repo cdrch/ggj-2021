@@ -11,8 +11,9 @@ public class TreeTrunk : MonoBehaviour
     public float prefabHeight = 4.9375f;
     public float prefabWidth = 4.5859375f;
     public float prefabHalfWidth = 4.5859375f / 2f;
-
-    public float distanceBeforeLoadingNextPart = 50f;
+    
+    public float spawnDistance;
+    public float despawnDistance;
 
     public int initialPartsToSpawn = 6;
     public int maxPartsToSpawn;
@@ -81,7 +82,7 @@ public class TreeTrunk : MonoBehaviour
 
     private void CheckIfOffsetUpIsCloseEnoughToNeedANewLayer()
     {
-        if (cam.transform.position.y + distanceBeforeLoadingNextPart >= nextOffsetYUp)
+        if (cam.transform.position.y + spawnDistance >= nextOffsetYUp)
         {
             AddNewLayerGoingUp();
         }
@@ -89,7 +90,7 @@ public class TreeTrunk : MonoBehaviour
 
     private void CheckIfOffsetDownIsCloseEnoughToNeedANewLayer()
     {
-        if (cam.transform.position.y - distanceBeforeLoadingNextPart <= nextOffsetYDown + prefabHeight && nextOffsetYDown >= 0f)
+        if (cam.transform.position.y - spawnDistance <= nextOffsetYDown + prefabHeight && nextOffsetYDown >= 0f)
         {
             //Debug.Log("no " + cam.transform.position.y + " - " + distanceBeforeLoadingNextPart + " = " + (cam.transform.position.y - distanceBeforeLoadingNextPart) + " | " + nextOffsetYDown + " + " + prefabHeight + " = " + (nextOffsetYDown + prefabHeight));
             AddNewLayerGoingDown();
@@ -98,7 +99,7 @@ public class TreeTrunk : MonoBehaviour
 
     private void CheckIfOffsetUpIsFarEnoughToDespawn()
     {
-        if (cam.transform.position.y + distanceBeforeLoadingNextPart < nextOffsetYUp)
+        if (cam.transform.position.y + despawnDistance < nextOffsetYUp)
         {
             RemoveTopLayer();
         }
@@ -106,7 +107,7 @@ public class TreeTrunk : MonoBehaviour
 
     private void CheckIfOffsetDownIsFarEnoughToDespawn()
     {
-        if (cam.transform.position.y - distanceBeforeLoadingNextPart > nextOffsetYDown + prefabHeight)
+        if (cam.transform.position.y - despawnDistance > nextOffsetYDown + prefabHeight)
         {
             RemoveBottomLayer();
         }
@@ -124,9 +125,9 @@ public class TreeTrunk : MonoBehaviour
 
         spawnedParts.Add(leftPart);
         spawnedParts.Add(rightPart);
-
+        
         spawnCount += 1;
-        //Debug.Log("Up: " + nextOffsetYUp);
+        Debug.Log("Up: " + nextOffsetYUp);
     }
 
     private void AddNewLayerGoingDown()
@@ -143,7 +144,7 @@ public class TreeTrunk : MonoBehaviour
         spawnedParts.Insert(0, rightPart);
 
         spawnCount += 1;
-        //Debug.Log("Down: " + nextOffsetYDown);
+        Debug.Log("Down: " + nextOffsetYDown);
     }
 
     private void IncreaseOffsetDownByOneLayer()
