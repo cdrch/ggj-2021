@@ -10,10 +10,6 @@ public class InsectController : MonoBehaviour
 
     public float difficulty = 1f; //slider for testing difficulty scaling
     public float rotationSpeed = 50f;
-
-    private int damage = 1;
-    private int directionOfRotation = 1;
-
     private float speed = 2f;
     private float orientationX = 0;
     private float orientationY = 0;
