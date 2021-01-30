@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    [HideInInspector]
     public GameManager instance;
 
     public int difficultyLevel = 1;
