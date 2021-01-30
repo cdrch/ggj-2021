@@ -9,14 +9,18 @@ public class InsectController : MonoBehaviour
     private BoxCollider2D wallcheck;
 
     public float difficulty = 1f; //slider for testing difficulty scaling
+    public float rotationSpeed = 50f;
+
+    private int damage = 1;
+    private int directionOfRotation = 1;
+
     private float speed = 2f;
     private float orientationX = 0;
     private float orientationY = 0;
     private float skewX = 1f;
     private float startAngle = 0f;
     private float targetAngle = 0f;
-    private float toDegrees = 180 / Mathf.PI;
-    private int directionOfRotation = 1;
+    private readonly float toDegrees = 180 / Mathf.PI;
 
     private Vector2 movement;
 
@@ -39,7 +43,6 @@ public class InsectController : MonoBehaviour
         rb.SetRotation(targetAngle);
 
         startAngle = targetAngle;
-
     }
 
     void Start()
@@ -55,15 +58,15 @@ public class InsectController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (Mathf.Floor(startAngle) != Mathf.Floor(targetAngle))
+        if (Mathf.Floor(startAngle/5) != Mathf.Floor(targetAngle/5))
         {
-            startAngle += directionOfRotation;
+            startAngle += directionOfRotation * rotationSpeed * Time.fixedDeltaTime;
             rb.SetRotation(startAngle);
         }
         else
         {
             rb.MovePosition(rb.position + movement * difficulty * Time.fixedDeltaTime);
-            if (Mathf.Floor(startAngle) == Mathf.Floor(targetAngle))
+            if (Mathf.Floor(startAngle/5) == Mathf.Floor(targetAngle/5))
             {
                 wallcheck.enabled = true;
             }
@@ -74,13 +77,12 @@ public class InsectController : MonoBehaviour
 
         if (!collision.otherCollider.CompareTag("Player"))
         {
-            
             startAngle = (Mathf.Atan2(movement.y, movement.x) * toDegrees) - 90;
             Redirect();
             wallcheck.enabled = false;
-
+            return;
         }
-    }
+    }    
 
     private void Redirect()
     {
