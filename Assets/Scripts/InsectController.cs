@@ -9,16 +9,15 @@ public class InsectController : MonoBehaviour
     private BoxCollider2D wallcheck;
 
     public float speed = 2f;
-    public float orientationX = 0;
-    public float orientationY = 0;
-    public float skewX = 1f;
-    public float counter = 0f;
-    public float startAngle = 0f;
-    public float targetAngle = 0f;
-    public float toDegrees = 180 / Mathf.PI;
-    public int directionOfRotation = 1;
+    private float orientationX = 0;
+    private float orientationY = 0;
+    private float skewX = 1f;
+    private float startAngle = 0f;
+    private float targetAngle = 0f;
+    private float toDegrees = 180 / Mathf.PI;
+    private int directionOfRotation = 1;
 
-    public Vector2 movement;
+    private Vector2 movement;
 
     // Start is called before the first frame update
 
@@ -59,8 +58,6 @@ public class InsectController : MonoBehaviour
         {
             startAngle += directionOfRotation;
             rb.SetRotation(startAngle);
-            Debug.Log(rb.rotation);
-            Debug.Log(startAngle);
         }
         else
         {
@@ -96,7 +93,6 @@ public class InsectController : MonoBehaviour
         {
             directionOfRotation = -1;
         }
-        Debug.Log(targetAngle);
     }
 
 }
