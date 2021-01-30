@@ -11,7 +11,7 @@ public class BeetleController : MonoBehaviour
 
     public float speed = 1f; // Base speed multiplier (can be modified)
 
-    public float tiles = 10f;
+    public float tiles = 10f; // Test value for tiles
 
     public float difficultyFactor = 10f; // Base difficulty divisor (can be modified)
     public float difficultyLimit = 50f;
@@ -89,8 +89,8 @@ public class BeetleController : MonoBehaviour
         }
 
         h.TakeDamage(1);
-*/
-        //Destroy(gameObject); // TODO: replace with pooling later
+
+        Destroy(gameObject); // TODO: replace with pooling later*/
 
     }
 
