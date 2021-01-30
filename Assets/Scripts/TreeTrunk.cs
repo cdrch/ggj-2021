@@ -7,6 +7,8 @@ public class TreeTrunk : MonoBehaviour
     public GameObject treeTrunkBase;
     public GameObjectPool leftTrunkPool;
     public GameObjectPool rightTrunkPool;
+    //public GameObjectPool leftBranchPool;
+    public GameObjectPool rightBranchPool;
 
     public float prefabHeight = 4.9375f;
     public float prefabWidth = 4.5859375f;
@@ -35,6 +37,8 @@ public class TreeTrunk : MonoBehaviour
         spawnedParts = new List<Transform>();
         leftTrunkPool = transform.Find("Left Trunk Parts").GetComponent<GameObjectPool>();
         rightTrunkPool = transform.Find("Right Trunk Parts").GetComponent<GameObjectPool>();
+
+        rightBranchPool = transform.Find("Right Branch Parts").GetComponent<GameObjectPool>();
 
         // Place the trunk base
         Instantiate(treeTrunkBase, Vector3.zero, Quaternion.identity);
