@@ -1,0 +1,55 @@
+
+TreeChunksFloatingAnimation.png
+size: 511,720
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+1
+  rotate: false
+  xy: 266, 153
+  size: 193, 565
+  orig: 193, 565
+  offset: 0, 0
+  index: -1
+2
+  rotate: true
+  xy: 266, 75
+  size: 76, 238
+  orig: 76, 238
+  offset: 0, 0
+  index: -1
+3
+  rotate: false
+  xy: 461, 358
+  size: 48, 155
+  orig: 48, 155
+  offset: 0, 0
+  index: -1
+4
+  rotate: false
+  xy: 2, 23
+  size: 262, 695
+  orig: 262, 695
+  offset: 0, 0
+  index: -1
+5
+  rotate: false
+  xy: 461, 515
+  size: 23, 91
+  orig: 23, 91
+  offset: 0, 0
+  index: -1
+6
+  rotate: true
+  xy: 266, 2
+  size: 71, 151
+  orig: 71, 151
+  offset: 0, 0
+  index: -1
+7
+  rotate: false
+  xy: 461, 153
+  size: 44, 203
+  orig: 44, 203
+  offset: 0, 0
+  index: -1
