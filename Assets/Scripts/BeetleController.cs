@@ -17,10 +17,10 @@ public class BeetleController : MonoBehaviour
     public float difficultyLimit = 50f;
     public int[] direction = new int[] { -1, 1 };
 
-    public int directionMultiplierx = 0;
-    public int directionMultipliery = 0;
+    public int directionMultiplierX = 1;
+    public int directionMultiplierY = 1;
 
-    public float angleRandomizer = 0f;
+    public float angleRandomizer = 1f; // No randomness
 
     private Vector2 movement;
 
@@ -40,14 +40,16 @@ public class BeetleController : MonoBehaviour
         }
 
         // Randomize direction using array of [-1, 1] and randomize angle from [0:90) degrees
-        directionMultiplierx = direction[Random.Range(0, 2)];
-        directionMultipliery = direction[Random.Range(0, 2)];
-        angleRandomizer = Random.Range((float)0.0, (float)1.0);
+        directionMultiplierX = direction[Random.Range(0, 2)];
+        directionMultiplierY = direction[Random.Range(0, 2)];
+        //angleRandomizer = Random.Range((float)0.0, (float)1.0); // Temporarily removed randomization
 
         // Set final values for movement vectors and normalize
-        movement.x = speed * directionMultiplierx * angleRandomizer;
-        movement.y = speed * directionMultipliery * (1.0f - angleRandomizer);
+        movement.x = speed * directionMultiplierX * angleRandomizer;
+        Debug.Log(movement);
+        movement.y = speed * directionMultiplierY * (2.0f - angleRandomizer);
         movement.Normalize();
+        Debug.Log(movement);
     }
 
     // Start is called before the first frame update
@@ -67,16 +69,16 @@ public class BeetleController : MonoBehaviour
         rb.MovePosition(rb.position + movement * Time.fixedDeltaTime);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (!collision.CompareTag("Player"))
+        if (!collision.otherCollider.CompareTag("Player"))
         {
             // Re-randomize angle and invert direction
-            angleRandomizer = Random.Range((float)0.75, (float)1.25);
-            movement *= -1;
-            movement.x *= angleRandomizer;
-            movement.y *= (2.0f - angleRandomizer);
+            // angleRandomizer = Random.Range((float)0.9, (float)1.1); // Temporarily removed randomization
+            movement.x *= angleRandomizer * -1;
+            movement.y *= (2.0f - angleRandomizer) * -1;
             movement.Normalize();
+            Debug.Log(movement);
             return;
         }
 
