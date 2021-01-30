@@ -9,7 +9,6 @@ public class InsectController : MonoBehaviour
     private BoxCollider2D wallcheck;
 
     public float difficulty = 1f; //slider for testing difficulty scaling
-    public float rotationSpeed = 50f;
     private float speed = 2f;
     private float orientationX = 0;
     private float orientationY = 0;
@@ -56,15 +55,15 @@ public class InsectController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (Mathf.Floor(startAngle/5) != Mathf.Floor(targetAngle/5))
+        if (Mathf.Floor(startAngle) != Mathf.Floor(targetAngle))
         {
-            startAngle += directionOfRotation * rotationSpeed * Time.fixedDeltaTime;
+            startAngle += directionOfRotation;
             rb.SetRotation(startAngle);
         }
         else
         {
             rb.MovePosition(rb.position + movement * difficulty * Time.fixedDeltaTime);
-            if (Mathf.Floor(startAngle/5) == Mathf.Floor(targetAngle/5))
+            if (Mathf.Floor(startAngle) == Mathf.Floor(targetAngle))
             {
                 wallcheck.enabled = true;
             }
