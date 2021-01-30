@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BeetleSpawner : MonoBehaviour
 {
-    public GameObject enemy;
+    public GameObject beetle;
     public GameObjectPool pool;
 
     public float spawnVertical = 1f;
@@ -14,7 +14,7 @@ public class BeetleSpawner : MonoBehaviour
     public float despawnDistance;
 
     public int initialEnemiesToSpawn = 1;
-    public int maxEnemiesToSpawn;
+    public int maxEnemiesToSpawn = 2;
     public int spawnCount = 0;
 
     public List<Transform> spawnedEnemies; // TODO: make this private again after debugging

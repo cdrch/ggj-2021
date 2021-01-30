@@ -15,6 +15,7 @@ public class InsectController : MonoBehaviour
     private float skewX = 1f;
     private float startAngle = 0f;
     private float targetAngle = 0f;
+    private int directionOfRotation = 1;
     private readonly float toDegrees = 180 / Mathf.PI;
 
     private Vector2 movement;
