@@ -1,19 +1,16 @@
 fileFormatVersion: 2
-guid: a5c1f73f9bfe6f84186a98baa595e323
+guid: f48345ef3374bd34098635705f72205d
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2040173356682386587
-    second: enemy_beetle_0
+      213: 5848458352665834019
+    second: enemy_ant_0
   - first:
-      213: -2278784202886096243
-    second: enemy_beetle_1
+      213: 5014813055456552287
+    second: enemy_ant_1
   - first:
-      213: -5351373119816930663
-    second: enemy_beetle_2
-  - first:
-      213: -7271063251214571299
-    second: enemy_beetle_3
+      213: -1001557590371947650
+    second: enemy_ant_2
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -123,13 +120,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: enemy_beetle_0
+      name: enemy_ant_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 256
-        height: 256
+        width: 128
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -137,20 +134,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b9c154dcbd6205c10800000000000000
-      internalID: 2040173356682386587
+      spriteID: 3223052a2e5e92150800000000000000
+      internalID: 5848458352665834019
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy_beetle_1
+      name: enemy_ant_1
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f55aa7187e1389540800000000000000
+      internalID: 5014813055456552287
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy_ant_2
       rect:
         serializedVersion: 2
         x: 256
         y: 0
-        width: 256
-        height: 256
+        width: 128
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -158,29 +176,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d8ad33b47d12060e0800000000000000
-      internalID: -2278784202886096243
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: enemy_beetle_2
-      rect:
-        serializedVersion: 2
-        x: 512
-        y: 0
-        width: 256
-        height: 256
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 99aecb4108a1cb5b0800000000000000
-      internalID: -5351373119816930663
+      spriteID: e7ba8c39da0c912f0800000000000000
+      internalID: -1001557590371947650
       vertices: []
       indices: 
       edges: []
