@@ -20,7 +20,7 @@ public class BeetleController : MonoBehaviour
     public int directionMultiplierX = 1;
     public int directionMultiplierY = 1;
 
-    public float angleRandomizer = 1f; // No randomness
+    public float angleRandomizer = 1f;
 
     private Vector2 movement;
 
@@ -42,14 +42,16 @@ public class BeetleController : MonoBehaviour
         // Randomize direction using array of [-1, 1] and randomize angle from [0:90) degrees
         directionMultiplierX = direction[Random.Range(0, 2)];
         directionMultiplierY = direction[Random.Range(0, 2)];
-        //angleRandomizer = Random.Range((float)0.0, (float)1.0); // Temporarily removed randomization
+        angleRandomizer = Random.Range((float)0.0, (float)1.0); // Temporarily removed randomization
 
         // Set final values for movement vectors and normalize
+        Debug.Log("Initial: " + movement);
         movement.x = speed * directionMultiplierX * angleRandomizer;
-        Debug.Log(movement);
+        Debug.Log("With just x: " + movement);
         movement.y = speed * directionMultiplierY * (2.0f - angleRandomizer);
+        Debug.Log("Pre-normalize start: " + movement);
         movement.Normalize();
-        Debug.Log(movement);
+        Debug.Log("Post-normalize start: " + movement);
     }
 
     // Start is called before the first frame update
@@ -77,8 +79,10 @@ public class BeetleController : MonoBehaviour
             // angleRandomizer = Random.Range((float)0.9, (float)1.1); // Temporarily removed randomization
             movement.x *= angleRandomizer * -1;
             movement.y *= (2.0f - angleRandomizer) * -1;
+
+            Debug.Log("Pre-normalize: " + movement);
             movement.Normalize();
-            Debug.Log(movement);
+            Debug.Log("Post-normalize: " + movement);
             return;
         }
 

@@ -131,7 +131,7 @@ public class TreeTrunk : MonoBehaviour
         spawnedParts.Add(rightPart);
         
         spawnCount += 1;
-        Debug.Log("Up: " + nextOffsetYUp);
+        //Debug.Log("Up: " + nextOffsetYUp);
     }
 
     private void AddNewLayerGoingDown()
@@ -148,7 +148,7 @@ public class TreeTrunk : MonoBehaviour
         spawnedParts.Insert(0, rightPart);
 
         spawnCount += 1;
-        Debug.Log("Down: " + nextOffsetYDown);
+        //Debug.Log("Down: " + nextOffsetYDown);
     }
 
     private void IncreaseOffsetDownByOneLayer()
