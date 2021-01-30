@@ -2,11 +2,17 @@
 using System.Collections.Generic;
 using UnityEditor;
 
-[CustomEditor(typeof(PolygonCollider2D))]
-public class PolygonColToEdgeCol : Editor
+[ExecuteInEditMode]
+public class PolygonColToEdgeCol : MonoBehaviour
 {
     public bool convertToTriggers;
-    
+
+    private void Awake()
+    {
+        ConvertPolyToEdge(GetComponent<PolygonCollider2D>());
+        DestroyImmediate(GetComponent<PolygonColToEdgeCol>());
+    }
+
     private void ConvertPolyToEdge(PolygonCollider2D col)
     {
         List<Vector2> pointsList = new List<Vector2>();
@@ -21,20 +27,5 @@ public class PolygonColToEdgeCol : Editor
             edge.isTrigger = true;
 
         DestroyImmediate(col);
-    }
-
-    public override void OnInspectorGUI()
-    {
-        PolygonCollider2D col = (PolygonCollider2D)target;
-
-        DrawDefaultInspector();
-
-        //myTarget.experience = EditorGUILayout.IntField("Experience", myTarget.experience);
-        //EditorGUILayout.LabelField("Level", myTarget.Level.ToString());
-
-        if (GUILayout.Button("Convert To Edge Collider (Destructive)"))
-        {
-            ConvertPolyToEdge(col);
-        }
     }
 }
