@@ -41,7 +41,6 @@ public class PoolInterface : MonoBehaviour
             Init();
 
         PoolInterfaceChild value;
-        Debug.Log(name);
         pools.TryGetValue(name, out value);
 
         // TODO: put safeguards here

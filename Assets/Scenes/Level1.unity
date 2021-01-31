@@ -174,6 +174,56 @@ MonoBehaviour:
   - {fileID: 1720752319627534600, guid: fcd1d293473a2a04a812f3557540437a, type: 3}
   - {fileID: 8899525342164265090, guid: c1f4583ef2c9ae7499b961cdc47cff9e, type: 3}
   - {fileID: 1257887358830890679, guid: 49a73ae1a72cae841bab661f04645b2c, type: 3}
+--- !u!1 &73179761
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 73179762}
+  - component: {fileID: 73179763}
+  m_Layer: 0
+  m_Name: Right Vines
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &73179762
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 73179761}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1694960778}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &73179763
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 73179761}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2583003630c50c740ad0dab697351e77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  treePart: 10
+  pools: []
+  startingPoolSize: 0
+  prefabs:
+  - {fileID: 8614164186863691202, guid: b5a69ff65c5d1dd438d32b36f246f5b3, type: 3}
+  - {fileID: 1241546193294930637, guid: ff36bfa77b0f4da488048546344535a5, type: 3}
+  - {fileID: 2200275487119327615, guid: 142a25197318a4f4ca04f50cb81bef7a, type: 3}
 --- !u!1 &229874871
 GameObject:
   m_ObjectHideFlags: 0
@@ -519,18 +569,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   treeTrunkBase: {fileID: 6424455843010435990, guid: 77e9fa83e7e2f98418dc98fa9c3590d2,
     type: 3}
-  blankBranchRight: {fileID: 0}
-  blankBranchLeft: {fileID: 0}
   prefabHeight: 4.9375
   prefabWidth: 4.5859375
   prefabHalfWidth: 2.2929688
   spawnDistance: 15
-  despawnDistance: 20
-  initialPartsToSpawn: 6
-  maxPartsToSpawn: 10
+  despawnDistance: 50
+  initialPartsToSpawn: 10
+  maxPartsToSpawn: 150
   spawnCount: 0
-  spawnedParts: []
-  spawnedBranches: []
 --- !u!1 &1682215290
 GameObject:
   m_ObjectHideFlags: 0
@@ -618,6 +664,9 @@ Transform:
   - {fileID: 59764139}
   - {fileID: 1820484005}
   - {fileID: 229874872}
+  - {fileID: 2142145312}
+  - {fileID: 73179762}
+  - {fileID: 2121891072}
   m_Father: {fileID: 1388111852}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -956,3 +1005,101 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2121891071
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2121891072}
+  - component: {fileID: 2121891073}
+  m_Layer: 0
+  m_Name: Blank Vines
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2121891072
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2121891071}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1694960778}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2121891073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2121891071}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2583003630c50c740ad0dab697351e77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  treePart: 11
+  pools: []
+  startingPoolSize: 0
+  prefabs:
+  - {fileID: 1048874029530397187, guid: 810928c9aa0fb0349a946b73035b4de5, type: 3}
+--- !u!1 &2142145311
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2142145312}
+  - component: {fileID: 2142145313}
+  m_Layer: 0
+  m_Name: Left Vines
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2142145312
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2142145311}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1694960778}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2142145313
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2142145311}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2583003630c50c740ad0dab697351e77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  treePart: 9
+  pools: []
+  startingPoolSize: 0
+  prefabs:
+  - {fileID: 8451200935832619758, guid: a66561c0598e4ad4d9acfea82107b972, type: 3}
+  - {fileID: 5983379671654750493, guid: db35ccd8c8a7f944587b5763ecedab9a, type: 3}
+  - {fileID: 6745516749962617780, guid: ec269a7c94370304d8f3c788e89911e8, type: 3}

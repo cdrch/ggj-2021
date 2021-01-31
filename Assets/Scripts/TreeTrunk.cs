@@ -22,8 +22,9 @@ public class TreeTrunk : MonoBehaviour
     public int maxPartsToSpawn;
     public int spawnCount = 0;
 
-    public List<Transform> spawnedParts; // TODO: make this private again after debugging
-    public List<Transform> spawnedBranches; // TODO: make this private again after debugging
+    private List<Transform> spawnedParts;
+    private List<Transform> spawnedBranches;
+    private List<Transform> spawnedVines;
 
     private float nextOffsetYUp = 0f;
     private float nextOffsetYDown;
@@ -41,12 +42,8 @@ public class TreeTrunk : MonoBehaviour
         
 
         spawnedParts = new List<Transform>();
-        //leftTrunkPool = transform.Find("Left Trunk Parts").GetComponent<GameObjectPool>();
-        //rightTrunkPool = transform.Find("Right Trunk Parts").GetComponent<GameObjectPool>();
-
         spawnedBranches = new List<Transform>();
-        //leftBranchPool = transform.Find("Left Branch Parts").GetComponent<GameObjectPool>();
-        //rightBranchPool = transform.Find("Right Branch Parts").GetComponent<GameObjectPool>();
+        spawnedVines = new List<Transform>();
 
         // Place the trunk base
         Instantiate(treeTrunkBase, Vector3.zero, Quaternion.identity);
@@ -83,7 +80,13 @@ public class TreeTrunk : MonoBehaviour
 
         spawnedBranches[spawnedBranches.Count - 1].gameObject.SetActive(false);
         spawnedBranches.RemoveAt(spawnedBranches.Count - 1);
-   
+
+        spawnedVines[spawnedVines.Count - 1].gameObject.SetActive(false);
+        spawnedVines.RemoveAt(spawnedVines.Count - 1);
+
+        spawnedVines[spawnedVines.Count - 1].gameObject.SetActive(false);
+        spawnedVines.RemoveAt(spawnedVines.Count - 1);
+
 
         DecreaseOffsetUpByOneLayer();
     }
@@ -100,7 +103,13 @@ public class TreeTrunk : MonoBehaviour
         spawnedBranches.RemoveAt(0);
 
         spawnedBranches[0].gameObject.SetActive(false);
-        spawnedBranches.RemoveAt(0);        
+        spawnedBranches.RemoveAt(0);
+
+        spawnedVines[0].gameObject.SetActive(false);
+        spawnedVines.RemoveAt(0);
+
+        spawnedVines[0].gameObject.SetActive(false);
+        spawnedVines.RemoveAt(0);
 
         IncreaseOffsetDownByOneLayer();
     }
@@ -171,6 +180,16 @@ public class TreeTrunk : MonoBehaviour
             spawnedBranches.Add(leftBranch);
             spawnedBranches.Add(rightBranch);
         }
+
+        Transform leftVine = poolInterface.GetNext(TreePart.VineLeft);
+        Transform rightVine = poolInterface.GetNext(TreePart.VineRight);
+
+        leftVine.position = new Vector2(-prefabHalfWidth, nextOffsetYUp);
+        rightVine.position = new Vector2(prefabHalfWidth, nextOffsetYUp);
+
+        spawnedVines.Add(leftVine);
+        spawnedVines.Add(rightVine);
+
         IncreaseOffsetUpByOneLayer();
 
         spawnCount += 1;
@@ -212,6 +231,15 @@ public class TreeTrunk : MonoBehaviour
             spawnedBranches.Insert(0, leftBranch);
             spawnedBranches.Insert(0, rightBranch);
         }
+
+        Transform leftVine = poolInterface.GetNext(TreePart.VineLeft);
+        Transform rightVine = poolInterface.GetNext(TreePart.VineRight);
+
+        leftVine.position = new Vector2(-prefabHalfWidth, nextOffsetYDown);
+        rightVine.position = new Vector2(prefabHalfWidth, nextOffsetYDown);
+
+        spawnedVines.Insert(0, leftVine);
+        spawnedVines.Insert(0, rightVine);
 
         DecreaseOffsetDownByOneLayer();
 
@@ -262,5 +290,8 @@ public enum TreePart
     TrunkBase,
     TrunkTop,
     BlankBranchLeft,
-    BlankBranchRight
+    BlankBranchRight,
+    VineLeft,
+    VineRight,
+    BlankVine
 }
