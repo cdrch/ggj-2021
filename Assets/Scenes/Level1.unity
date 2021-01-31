@@ -169,6 +169,10 @@ MonoBehaviour:
   startingPoolSize: 0
   prefabs:
   - {fileID: 4311993196779093284, guid: b2667fe786fb2f248bf20e5c08f5fd00, type: 3}
+  - {fileID: 8432683706771539204, guid: ecfec10132ae1e348bc77c7534184ab4, type: 3}
+  - {fileID: 6457065203191564995, guid: 540b335fcfc32fd4886ecffb9cb86194, type: 3}
+  - {fileID: 1720752319627534600, guid: fcd1d293473a2a04a812f3557540437a, type: 3}
+  - {fileID: 8899525342164265090, guid: c1f4583ef2c9ae7499b961cdc47cff9e, type: 3}
 --- !u!1 &321310743
 GameObject:
   m_ObjectHideFlags: 0
@@ -526,6 +530,10 @@ MonoBehaviour:
   startingPoolSize: 0
   prefabs:
   - {fileID: 818181336866371858, guid: a0a94345e32cd574fa585eed19a3d886, type: 3}
+  - {fileID: 4911167590859159081, guid: 995fdd1c77d4a214596259ef3b3e182f, type: 3}
+  - {fileID: 6358602734260344504, guid: 0e2698fb3f9c4d140b5fe5e64077eb99, type: 3}
+  - {fileID: 9060582037555206542, guid: 4baddf1ed9272d04d8668ceadbed1139, type: 3}
+  - {fileID: 2140775851599717527, guid: a3a29982a7513b7409d8c329e3bb703a, type: 3}
 --- !u!1 &1694960777
 GameObject:
   m_ObjectHideFlags: 0
