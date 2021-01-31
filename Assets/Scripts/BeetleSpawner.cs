@@ -51,7 +51,7 @@ public class BeetleSpawner : MonoBehaviour
     private void CheckForNewBeetle()
     {
         for(int j=0; j < spawnedEnemiesXY.Count; j++) {
-            Debug.Log(cam.transform.position.y + " - " + despawnDistance + " > " + spawnedEnemiesXY[j].position.y);
+            //Debug.Log(cam.transform.position.y + " - " + despawnDistance + " > " + spawnedEnemiesXY[j].position.y);
             if (cam.transform.position.y - spawnedEnemiesXY[j].position.y > spawnDistance && !spawnedEnemies[j].activeInHierarchy)
             {
                 spawnCount += 1;
