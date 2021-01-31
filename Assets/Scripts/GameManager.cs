@@ -74,6 +74,7 @@ public class GameManager : MonoBehaviour
     void Init()
     {
         cam = Camera.main;
+        music = GameObject.Find("Audio Manager").GetComponent<MusicSystem>();
 
         switch (SceneManager.GetActiveScene().buildIndex)
         {
@@ -103,17 +104,16 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!init)
+            Init();
         switch (stage)
         {
             case GameStage.None:
+                music.TriggerMusicSwitch(MusicTrack.COMPLETE_SONG);
                 break;
             case GameStage.One:
-                if (!init)
-                    Init();
-                else
-                {
-                    scoreText.text = "Distance: " + player.GetMetersOffGroundRounded() + "m";
-                }
+                scoreText.text = "Distance: " + player.GetMetersOffGroundRounded() + "m";
+
 
                 if (player.GetMetersOffGroundRounded() > transitionHeightToStage2)
                 {
