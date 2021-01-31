@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     [HideInInspector]
-    public GameManager instance;
+    public static GameManager instance;
 
     public GameStage stage = GameStage.None;
 
