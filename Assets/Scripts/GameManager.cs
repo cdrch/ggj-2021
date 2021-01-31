@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour
     public float elevatorSpeedChangePerDifficultyLevel = 0.25f; 
     // each level, elevator speed increases by elevatorSpeed * elevatorSpeedChangePerDifficultyLevel
 
-    private Camera cam;
+    public Camera cam;
     private TreeTrunk treeTrunk;
     private PlayerController player;
 

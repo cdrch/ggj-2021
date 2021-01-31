@@ -18,6 +18,8 @@ public class PlayerController : MonoBehaviour
 
     private Animator anim;
 
+    private Vector3 oldPos;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -61,7 +63,11 @@ public class PlayerController : MonoBehaviour
         {
             anim.SetBool("IsMoving", true);
         }
-        
+        // attempt to improve player controls
+        /*oldPos = rb.position;
         rb.MovePosition(rb.position + movement * Time.fixedDeltaTime);
+        Vector3 dirVector = Vector3.RotateTowards(oldPos, rb.position, Time.fixedDeltaTime * 90 * Mathf.Deg2Rad, 1f);
+
+        transform.rotation = Quaternion.FromToRotation(oldPos, rb.position);*/
     }
 }
