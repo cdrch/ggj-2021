@@ -20,6 +20,7 @@ public class InsectController : MonoBehaviour
     private int directionOfRotation = 1;
     private readonly float toDegrees = 180 / Mathf.PI;
 
+    private bool Initialized = false;
     private Camera cam;
     private Vector2 offset = new Vector2(0f,10f);
 
@@ -49,6 +50,7 @@ public class InsectController : MonoBehaviour
     void Start()
     {
         cam = Camera.main;
+        Initialized = true;
     }
 
     // Update is called once per frame
@@ -59,11 +61,13 @@ public class InsectController : MonoBehaviour
 
     private void OnEnable()
     {
-        difficulty += 0.1f;
-        rotationSpeed += 1;
-        xshift = Random.Range(-3f, 3f);
-        offset = new Vector2(xshift, cam.transform.position.y+10f);
-        rb.MovePosition(offset);
+        if(Initialized){
+            difficulty += 0.1f;
+            rotationSpeed += 1;
+            xshift = Random.Range(-3f, 3f);
+            offset = new Vector2(xshift, cam.transform.position.y + 10f);
+            rb.MovePosition(offset);
+        }
     }
 
 

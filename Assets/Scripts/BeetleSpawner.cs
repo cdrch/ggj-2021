@@ -14,6 +14,7 @@ public class BeetleSpawner : MonoBehaviour
     public int maxEnemiesToSpawn = 5;
     public int spawnCount = 0;
     public int difficulty = 1;
+    private bool Initialized = false;
 
     public GameObject player;
 
@@ -35,12 +36,16 @@ public class BeetleSpawner : MonoBehaviour
             spawnedEnemies.Add(enemyBeetle);
             spawnedEnemiesXY.Add(enemyBeetle.transform);
         }
+        Initialized = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        CheckForNewBeetle();
+        if (Initialized)
+        {
+            CheckForNewBeetle();
+        }
     }
 
     private void CheckForNewBeetle()
