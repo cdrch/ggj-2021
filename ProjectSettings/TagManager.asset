@@ -47,6 +47,9 @@ TagManager:
   - name: Tree
     uniqueID: 1036623743
     locked: 0
+  - name: Vine
+    uniqueID: 2381299057
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
