@@ -7,7 +7,7 @@ public class TreeTrunk : MonoBehaviour
     public GameObject treeTrunkBase;
     public GameObjectPool leftTrunkPool;
     public GameObjectPool rightTrunkPool;
-    //public GameObjectPool leftBranchPool;
+    public GameObjectPool leftBranchPool;
     public GameObjectPool rightBranchPool;
 
     public float prefabHeight = 4.9375f;
@@ -22,6 +22,7 @@ public class TreeTrunk : MonoBehaviour
     public int spawnCount = 0;
 
     public List<Transform> spawnedParts; // TODO: make this private again after debugging
+    public List<Transform> spawnedBranches; // TODO: make this private again after debugging
 
     private float nextOffsetYUp = 0f;
     private float nextOffsetYDown;
@@ -38,6 +39,8 @@ public class TreeTrunk : MonoBehaviour
         leftTrunkPool = transform.Find("Left Trunk Parts").GetComponent<GameObjectPool>();
         rightTrunkPool = transform.Find("Right Trunk Parts").GetComponent<GameObjectPool>();
 
+        spawnedBranches = new List<Transform>();
+        leftBranchPool = transform.Find("Left Branch Parts").GetComponent<GameObjectPool>();
         rightBranchPool = transform.Find("Right Branch Parts").GetComponent<GameObjectPool>();
 
         // Place the trunk base
@@ -70,6 +73,12 @@ public class TreeTrunk : MonoBehaviour
         spawnedParts[spawnedParts.Count - 1].gameObject.SetActive(false);
         spawnedParts.RemoveAt(spawnedParts.Count - 1);
 
+        spawnedBranches[spawnedBranches.Count - 1].gameObject.SetActive(false);
+        spawnedBranches.RemoveAt(spawnedBranches.Count - 1);
+
+        spawnedBranches[spawnedBranches.Count - 1].gameObject.SetActive(false);
+        spawnedBranches.RemoveAt(spawnedBranches.Count - 1);
+
         DecreaseOffsetUpByOneLayer();
     }
 
@@ -80,6 +89,12 @@ public class TreeTrunk : MonoBehaviour
 
         spawnedParts[0].gameObject.SetActive(false);
         spawnedParts.RemoveAt(0);
+
+        spawnedBranches[0].gameObject.SetActive(false);
+        spawnedBranches.RemoveAt(0);
+
+        spawnedBranches[0].gameObject.SetActive(false);
+        spawnedBranches.RemoveAt(0);
 
         IncreaseOffsetDownByOneLayer();
     }
@@ -125,11 +140,20 @@ public class TreeTrunk : MonoBehaviour
         leftPart.position = new Vector2(-prefabHalfWidth, nextOffsetYUp);
         rightPart.position = new Vector2(prefabHalfWidth, nextOffsetYUp);
 
-        IncreaseOffsetUpByOneLayer();
-
         spawnedParts.Add(leftPart);
         spawnedParts.Add(rightPart);
-        
+
+        Transform leftBranch = leftBranchPool.GetNext();
+        Transform rightBranch = rightBranchPool.GetNext();
+
+        leftBranch.position = new Vector2(-prefabHalfWidth, nextOffsetYUp);
+        rightBranch.position = new Vector2(prefabHalfWidth, nextOffsetYUp);
+
+        spawnedBranches.Add(leftBranch);
+        spawnedBranches.Add(rightBranch);
+
+        IncreaseOffsetUpByOneLayer();
+
         spawnCount += 1;
         //Debug.Log("Up: " + nextOffsetYUp);
     }
@@ -142,10 +166,20 @@ public class TreeTrunk : MonoBehaviour
         leftPart.position = new Vector2(-prefabHalfWidth, nextOffsetYDown);
         rightPart.position = new Vector2(prefabHalfWidth, nextOffsetYDown);
 
-        DecreaseOffsetDownByOneLayer();
-
         spawnedParts.Insert(0, leftPart);
         spawnedParts.Insert(0, rightPart);
+
+        Transform leftBranch = leftBranchPool.GetNext();
+        Transform rightBranch = rightBranchPool.GetNext();
+
+        leftBranch.position = new Vector2(-prefabHalfWidth, nextOffsetYDown);
+        rightBranch.position = new Vector2(prefabHalfWidth, nextOffsetYDown);
+
+
+        spawnedBranches.Insert(0, leftBranch);
+        spawnedBranches.Insert(0, rightBranch);
+
+        DecreaseOffsetDownByOneLayer();
 
         spawnCount += 1;
         //Debug.Log("Down: " + nextOffsetYDown);
@@ -191,5 +225,6 @@ public enum TreePart
     TrunkRight,
     BranchLeft,
     BranchRight,
-    TrunkBase
+    TrunkBase,
+    TrunkTop
 }
