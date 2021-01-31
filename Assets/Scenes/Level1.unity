@@ -648,7 +648,6 @@ GameObject:
   m_Component:
   - component: {fileID: 475836038}
   - component: {fileID: 475836040}
-  - component: {fileID: 475836039}
   m_Layer: 0
   m_Name: Sky2
   m_TagString: Untagged
@@ -664,26 +663,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 475836037}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -3.25, z: 0}
+  m_LocalPosition: {x: 0, y: 12.4609375, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1321558238}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &475836039
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 475836037}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ba51daf44196f545b5ba472d9b11219, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startingPoint: {x: 0, y: 0}
-  parallaxMultipler: {x: 1, y: 1}
 --- !u!212 &475836040
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -744,7 +729,6 @@ GameObject:
   m_Component:
   - component: {fileID: 495306925}
   - component: {fileID: 495306927}
-  - component: {fileID: 495306926}
   m_Layer: 0
   m_Name: Sky1
   m_TagString: Untagged
@@ -766,20 +750,6 @@ Transform:
   m_Father: {fileID: 1321558238}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &495306926
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 495306924}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ba51daf44196f545b5ba472d9b11219, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startingPoint: {x: 0, y: 0}
-  parallaxMultipler: {x: 1, y: 1}
 --- !u!212 &495306927
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -931,7 +901,8 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: -4.9, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1783174133}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -958,7 +929,6 @@ GameObject:
   m_Component:
   - component: {fileID: 612869558}
   - component: {fileID: 612869560}
-  - component: {fileID: 612869559}
   m_Layer: 0
   m_Name: Sky3
   m_TagString: Untagged
@@ -974,26 +944,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 612869557}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -3.25, z: 0}
+  m_LocalPosition: {x: 0, y: 28.171877, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1321558238}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &612869559
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 612869557}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ba51daf44196f545b5ba472d9b11219, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startingPoint: {x: 0, y: 0}
-  parallaxMultipler: {x: 1, y: 1}
 --- !u!212 &612869560
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1054,7 +1010,6 @@ GameObject:
   m_Component:
   - component: {fileID: 881131338}
   - component: {fileID: 881131340}
-  - component: {fileID: 881131339}
   m_Layer: 0
   m_Name: Sky4
   m_TagString: Untagged
@@ -1070,26 +1025,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 881131337}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -3.25, z: 0}
+  m_LocalPosition: {x: 0, y: 43.882816, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1321558238}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &881131339
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 881131337}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ba51daf44196f545b5ba472d9b11219, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startingPoint: {x: 0, y: 0}
-  parallaxMultipler: {x: 1, y: 1}
 --- !u!212 &881131340
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1305,7 +1246,7 @@ Transform:
   - {fileID: 475836038}
   - {fileID: 612869558}
   - {fileID: 881131338}
-  - {fileID: 1783174133}
+  - {fileID: 1906945005}
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1321,9 +1262,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef9a76c14c4b18749974306f84d6ef9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skies: []
-  transitionHeights: []
-  manualHeight: 
+  startingPoint: {x: 0, y: 0}
+  parallaxMultipler: {x: 0.9, y: 0.83}
 --- !u!1 &1343548807
 GameObject:
   m_ObjectHideFlags: 0
@@ -2031,7 +1971,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1783174133}
   - component: {fileID: 1783174135}
-  - component: {fileID: 1783174134}
   m_Layer: 0
   m_Name: Sky5
   m_TagString: Untagged
@@ -2047,26 +1986,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1783174132}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -3.25, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1321558238}
-  m_RootOrder: 4
+  m_Father: {fileID: 519420032}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1783174134
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1783174132}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ba51daf44196f545b5ba472d9b11219, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startingPoint: {x: 0, y: 0}
-  parallaxMultipler: {x: 1, y: 1}
 --- !u!212 &1783174135
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2216,6 +2141,87 @@ MonoBehaviour:
   startingPoolSize: 0
   prefabs:
   - {fileID: 6329256821268870372, guid: 0e87b428df34e9d42b06dbb3793aeb84, type: 3}
+--- !u!1 &1906945004
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1906945005}
+  - component: {fileID: 1906945006}
+  m_Layer: 0
+  m_Name: Sky5
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1906945005
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1906945004}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 59.593758, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1321558238}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &1906945006
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1906945004}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 1968079099
+  m_SortingLayer: -3
+  m_SortingOrder: -5
+  m_Sprite: {fileID: 21300000, guid: 66faa23d3e6cf9f479f2b919429fef30, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 18.75, y: 15.792847}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
 --- !u!1 &1987344195
 GameObject:
   m_ObjectHideFlags: 0

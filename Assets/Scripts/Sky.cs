@@ -5,48 +5,24 @@ using UnityEngine;
 public class Sky : MonoBehaviour
 {
     private Transform cam;
+    private Vector3 lastCameraPosition;
+    public Vector2 startingPoint; // does nothing currently
+    public Vector2 parallaxMultipler;
 
-    public GameObject[] skies;
-    public float[] transitionHeights;
-    public bool[] manualHeight;
-    private int currentSky = 0;
-
-    private Vector3 nextSkyPoint = Vector3.zero;
-
-    private float skyHeight = 15.7109375f;
+    private float SKY_PART_HEIGHT = 15.7109375f;
 
     // Start is called before the first frame update
     void Start()
     {
         cam = GameManager.instance.cam.transform;
-        float height = GameManager.instance.treeTotalHeight / GameManager.SQUIRREL_LENGTH_IN_METERS;
-        for (int i = 0; i < transitionHeights.Length; i++)
-        {
-            if (manualHeight[i])
-                continue;
-
-            transitionHeights[i] = height / transitionHeights.Length - 2.5f; // TODO: magic number is bad
-        }
+        lastCameraPosition = cam.position;
     }
 
-    // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
-        transform.position = cam.position;
-
-        if (nextSkyPoint.y < cam.position.y)
-        {
-
-        }
-    }
-
-    private void SwitchSky(int sky)
-    {
-        skies[currentSky].GetComponent<SpriteRenderer>().enabled = false;
-
-        skies[sky].GetComponent<SpriteRenderer>().enabled = true;
-
-        currentSky = sky;
+        Vector3 deltaMovement = cam.position - lastCameraPosition;
+        transform.position += new Vector3(deltaMovement.x * parallaxMultipler.x, deltaMovement.y * parallaxMultipler.y, deltaMovement.z);
+        lastCameraPosition = cam.position;
     }
 
 }
