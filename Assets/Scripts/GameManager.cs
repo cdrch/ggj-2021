@@ -37,14 +37,18 @@ public class GameManager : MonoBehaviour
 
     public MusicSystem music;
 
+    public GameObject gameOverScreen;
+
+
     public void Victory()
     {
-
+        
     }
 
     public void Failure()
     {
-
+        gameOverScreen.GetComponentInChildren<TextMeshProUGUI>().text = "You were beaten by that other squirrel...\n\nYou made it " + player.GetMetersOffGroundRounded() + "m to the top.";
+        gameOverScreen.SetActive(true);
     }
 
     // Start is called before the first frame update
@@ -75,6 +79,7 @@ public class GameManager : MonoBehaviour
                 stage = GameStage.None;
                 break;
             case 1:
+                gameOverScreen.SetActive(false);
                 treeTrunk = GameObject.Find("Trunk").GetComponent<TreeTrunk>();
                 player = GameObject.Find("Player Squirrel").GetComponent<PlayerController>();
 
