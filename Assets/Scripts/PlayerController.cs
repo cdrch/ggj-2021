@@ -12,16 +12,26 @@ public class PlayerController : MonoBehaviour
 
     private Rigidbody2D rb;
 
+    //private float height = 0f;
+    private float heightOffset = 0f; // for any origin resets
+    private float HEIGHT_OF_TRUNK_BASE = 5.5f; // TODO: 5?
+    private float SQUIRREL_LENGTH_IN_METERS = 0.3048f;
+
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
     }
 
+    public float GetMetersOffGroundRounded()
+    {
+        return Mathf.Round((transform.position.y + HEIGHT_OF_TRUNK_BASE + heightOffset) * SQUIRREL_LENGTH_IN_METERS);
+    }
+
     // Update is called once per frame
     void Update()
     {
-        GetInput();        
+        GetInput();
     }
 
     private void FixedUpdate()

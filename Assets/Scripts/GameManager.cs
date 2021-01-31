@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -18,6 +20,12 @@ public class GameManager : MonoBehaviour
 
     private Camera cam;
     private TreeTrunk treeTrunk;
+    private PlayerController player;
+
+    private Canvas canvas;
+    private TextMeshProUGUI scoreText;
+
+    private bool init = false;
 
     // Start is called before the first frame update
     void Start()
@@ -31,21 +39,62 @@ public class GameManager : MonoBehaviour
 
         instance = this;
 
-        // caching expensive operations
+        if (!init)
+            Init();
+    }
+
+    // caching expensive operations
+    void Init()
+    {
         cam = Camera.main;
-        if (SceneManager.GetActiveScene().buildIndex == 1)
+
+        switch (SceneManager.GetActiveScene().buildIndex)
         {
-            treeTrunk = GameObject.Find("Trunk").GetComponent<TreeTrunk>();
+            case 0:
+                break;
+            case 1:
+                treeTrunk = GameObject.Find("Trunk").GetComponent<TreeTrunk>();
+                player = GameObject.Find("Player Squirrel").GetComponent<PlayerController>();
 
-            stage = GameStage.One;
-        }        
+                canvas = GameObject.Find("Canvas").GetComponent<Canvas>();
+                scoreText = canvas.transform.Find("Distance Text").GetComponent<TextMeshProUGUI>();
+                Debug.Log(scoreText);
 
+                stage = GameStage.One;
+
+                if (treeTrunk != null && player != null && canvas != null && scoreText != null)
+                    init = true;
+                break;
+            default:
+                break;
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        switch (stage)
+        {
+            case GameStage.None:
+                break;
+            case GameStage.One:
+                if (!init)
+                    Init();
+                else
+                {
+                    scoreText.text = "Distance: " + player.GetMetersOffGroundRounded() + "m";
+                }                
+                break;
+            case GameStage.Two:
+                break;
+            case GameStage.Three:
+                break;
+        }
+    }
+
+    public void GoToMainMenu()
+    {
+        SceneManager.LoadScene(0);
     }
 
     public void ActivateGameScene()
