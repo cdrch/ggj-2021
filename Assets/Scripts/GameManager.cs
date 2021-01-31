@@ -14,6 +14,9 @@ public class GameManager : MonoBehaviour
 
     public int difficultyLevel = 1;
 
+    public float transitionHeightToStage2;
+    public float transitionHeightToStage3;
+
     public float elevatorSpeed = 1f;
     public float elevatorSpeedChangePerDifficultyLevel = 0.25f; 
     // each level, elevator speed increases by elevatorSpeed * elevatorSpeedChangePerDifficultyLevel
@@ -83,11 +86,22 @@ public class GameManager : MonoBehaviour
                 else
                 {
                     scoreText.text = "Distance: " + player.GetMetersOffGroundRounded() + "m";
-                }                
+                }
+
+                if (player.GetMetersOffGroundRounded() > transitionHeightToStage2)
+                    stage = GameStage.Two;
+
                 break;
             case GameStage.Two:
+
+                if (player.GetMetersOffGroundRounded() < transitionHeightToStage2 - 1)
+                    stage = GameStage.One;
+                if (player.GetMetersOffGroundRounded() > transitionHeightToStage3)
+                    stage = GameStage.Three;
                 break;
             case GameStage.Three:
+                if (player.GetMetersOffGroundRounded() < transitionHeightToStage3 - 1)
+                    stage = GameStage.One;
                 break;
         }
     }
