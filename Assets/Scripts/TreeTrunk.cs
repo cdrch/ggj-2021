@@ -11,9 +11,6 @@ public class TreeTrunk : MonoBehaviour
     //public GameObjectPool rightBranchPool;
     private PoolInterface poolInterface;
 
-    public GameObject blankBranchRight;
-    public GameObject blankBranchLeft;
-
     public float prefabHeight = 4.9375f;
     public float prefabWidth = 4.5859375f;
     public float prefabHalfWidth = 4.5859375f / 2f;
