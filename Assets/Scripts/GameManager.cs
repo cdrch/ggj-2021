@@ -37,6 +37,11 @@ public class GameManager : MonoBehaviour
 
     public MusicSystem music;
 
+    public void Victory()
+    {
+
+    }
+
     // Start is called before the first frame update
     void Start()
     {
