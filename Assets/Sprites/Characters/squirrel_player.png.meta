@@ -44,6 +44,12 @@ TextureImporter:
   - first:
       213: -3187009644373452689
     second: squirrel_player_13
+  - first:
+      213: -8156270573540060540
+    second: squirrel_player_14
+  - first:
+      213: -3278479530464495188
+    second: squirrel_player_15
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -157,7 +163,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 512
+        y: 640
         width: 128
         height: 128
       alignment: 0
@@ -178,7 +184,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 128
-        y: 512
+        y: 640
         width: 128
         height: 128
       alignment: 0
@@ -199,7 +205,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 256
-        y: 512
+        y: 640
         width: 128
         height: 128
       alignment: 0
@@ -220,7 +226,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 384
+        y: 512
         width: 128
         height: 128
       alignment: 0
@@ -241,7 +247,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 128
-        y: 384
+        y: 512
         width: 128
         height: 128
       alignment: 0
@@ -262,7 +268,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 256
-        y: 384
+        y: 512
         width: 128
         height: 128
       alignment: 0
@@ -283,7 +289,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 256
+        y: 384
         width: 128
         height: 128
       alignment: 0
@@ -304,7 +310,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 128
-        y: 256
+        y: 384
         width: 128
         height: 128
       alignment: 0
@@ -325,7 +331,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 256
-        y: 256
+        y: 384
         width: 128
         height: 128
       alignment: 0
@@ -346,7 +352,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 128
+        y: 256
         width: 128
         height: 128
       alignment: 0
@@ -367,7 +373,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 128
-        y: 128
+        y: 256
         width: 128
         height: 128
       alignment: 0
@@ -388,7 +394,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 256
-        y: 128
+        y: 256
         width: 128
         height: 128
       alignment: 0
@@ -409,7 +415,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
+        y: 128
         width: 128
         height: 128
       alignment: 0
@@ -430,7 +436,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 128
-        y: 0
+        y: 128
         width: 128
         height: 128
       alignment: 0
@@ -442,6 +448,48 @@ TextureImporter:
       bones: []
       spriteID: f68506b2d9775c3d0800000000000000
       internalID: -3187009644373452689
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: squirrel_player_14
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 128
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4825c2c802b1fce80800000000000000
+      internalID: -8156270573540060540
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: squirrel_player_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca93647bc308082d0800000000000000
+      internalID: -3278479530464495188
       vertices: []
       indices: 
       edges: []
