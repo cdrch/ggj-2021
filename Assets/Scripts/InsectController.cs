@@ -30,27 +30,12 @@ public class InsectController : MonoBehaviour
 
     private void Awake()
     {
-        rb = GetComponent<Rigidbody2D>();
-        wallcheck = GetComponent<BoxCollider2D>();
 
-        orientationX = Random.Range(0, 2) * 2 - 1;
-        orientationY = Random.Range(0, 2) * 2 - 1;
-        skewX = Random.Range((float)1, (float)1.3);
-
-        movement.x = speed * difficulty * orientationX;
-        movement.y = speed * difficulty * orientationY;
-
-        Redirect();
-
-        rb.SetRotation(targetAngle);
-
-        startAngle = targetAngle;
     }
 
     void Start()
     {
-        cam = Camera.main;
-        Initialized = true;
+        Init();
     }
 
     // Update is called once per frame
@@ -59,15 +44,40 @@ public class InsectController : MonoBehaviour
         
     }
 
+    private void Init()
+    {
+        if (!Initialized)
+        {
+            Initialized = true;
+            cam = Camera.main;
+            rb = GetComponent<Rigidbody2D>();
+            wallcheck = GetComponent<BoxCollider2D>();
+
+            orientationX = Random.Range(0, 2) * 2 - 1;
+            orientationY = Random.Range(0, 2) * 2 - 1;
+            skewX = Random.Range((float)1, (float)1.3);
+
+            movement.x = speed * difficulty * orientationX;
+            movement.y = speed * difficulty * orientationY;
+
+            Redirect();
+
+            rb.SetRotation(targetAngle);
+
+            startAngle = targetAngle;
+        }
+    }
     private void OnEnable()
     {
         if(Initialized){
             difficulty += 0.1f;
             rotationSpeed += 1;
-            xshift = Random.Range(-3f, 3f);
+            xshift = Random.Range(-2f, 2f);
             offset = new Vector2(xshift, cam.transform.position.y + 10f);
             rb.MovePosition(offset);
+            Debug.Log(offset);
         }
+        Init();
     }
 
 
