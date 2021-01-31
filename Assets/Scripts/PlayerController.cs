@@ -63,6 +63,8 @@ public class PlayerController : MonoBehaviour
         {
             anim.SetBool("IsMoving", true);
         }
+
+        rb.MovePosition(rb.position + movement * Time.fixedDeltaTime);
         // attempt to improve player controls
         /*oldPos = rb.position;
         rb.MovePosition(rb.position + movement * Time.fixedDeltaTime);
