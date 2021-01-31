@@ -23,6 +23,8 @@ public class Sky : MonoBehaviour
         Vector3 deltaMovement = cam.position - lastCameraPosition;
         transform.position += new Vector3(deltaMovement.x * parallaxMultipler.x, deltaMovement.y * parallaxMultipler.y, deltaMovement.z);
         lastCameraPosition = cam.position;
+
+
     }
 
 }

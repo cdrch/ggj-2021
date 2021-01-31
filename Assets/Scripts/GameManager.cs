@@ -59,6 +59,7 @@ public class GameManager : MonoBehaviour
         switch (SceneManager.GetActiveScene().buildIndex)
         {
             case 0:
+                stage = GameStage.None;
                 break;
             case 1:
                 treeTrunk = GameObject.Find("Trunk").GetComponent<TreeTrunk>();
@@ -128,11 +129,14 @@ public class GameManager : MonoBehaviour
 
     public void GoToMainMenu()
     {
+        stage = GameStage.None;
+        init = false;
         SceneManager.LoadScene(0);
     }
 
     public void ActivateGameScene()
     {
+        init = false;
         SceneManager.LoadScene(1);
     }
 
