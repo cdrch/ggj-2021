@@ -9,6 +9,7 @@ public class TreeTrunk : MonoBehaviour
     public GameObjectPool rightTrunkPool;
     public GameObjectPool leftBranchPool;
     public GameObjectPool rightBranchPool;
+    private PoolInterface poolInterface;
 
     public float prefabHeight = 4.9375f;
     public float prefabWidth = 4.5859375f;
@@ -35,13 +36,17 @@ public class TreeTrunk : MonoBehaviour
         nextOffsetYDown = 0f;
 
         cam = Camera.main;
+
+        poolInterface = GetComponentInChildren<PoolInterface>();
+        
+
         spawnedParts = new List<Transform>();
-        leftTrunkPool = transform.Find("Left Trunk Parts").GetComponent<GameObjectPool>();
-        rightTrunkPool = transform.Find("Right Trunk Parts").GetComponent<GameObjectPool>();
+        //leftTrunkPool = transform.Find("Left Trunk Parts").GetComponent<GameObjectPool>();
+        //rightTrunkPool = transform.Find("Right Trunk Parts").GetComponent<GameObjectPool>();
 
         spawnedBranches = new List<Transform>();
-        leftBranchPool = transform.Find("Left Branch Parts").GetComponent<GameObjectPool>();
-        rightBranchPool = transform.Find("Right Branch Parts").GetComponent<GameObjectPool>();
+        //leftBranchPool = transform.Find("Left Branch Parts").GetComponent<GameObjectPool>();
+        //rightBranchPool = transform.Find("Right Branch Parts").GetComponent<GameObjectPool>();
 
         // Place the trunk base
         Instantiate(treeTrunkBase, Vector3.zero, Quaternion.identity);
@@ -134,8 +139,8 @@ public class TreeTrunk : MonoBehaviour
 
     private void AddNewLayerGoingUp()
     {
-        Transform leftPart = leftTrunkPool.GetNext();
-        Transform rightPart = rightTrunkPool.GetNext();
+        Transform leftPart = poolInterface.GetNext(TreePart.TrunkLeft);
+        Transform rightPart = poolInterface.GetNext(TreePart.TrunkRight);
 
         leftPart.position = new Vector2(-prefabHalfWidth, nextOffsetYUp);
         rightPart.position = new Vector2(prefabHalfWidth, nextOffsetYUp);
@@ -143,8 +148,8 @@ public class TreeTrunk : MonoBehaviour
         spawnedParts.Add(leftPart);
         spawnedParts.Add(rightPart);
 
-        Transform leftBranch = leftBranchPool.GetNext();
-        Transform rightBranch = rightBranchPool.GetNext();
+        Transform leftBranch = poolInterface.GetNext(TreePart.BranchLeft);
+        Transform rightBranch = poolInterface.GetNext(TreePart.BranchRight);
 
         leftBranch.position = new Vector2(-prefabHalfWidth, nextOffsetYUp);
         rightBranch.position = new Vector2(prefabHalfWidth, nextOffsetYUp);
