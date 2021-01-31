@@ -5,7 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    [HideInInspector]
     public GameManager instance;
+
+    public GameStage stage = GameStage.None;
 
     public int difficultyLevel = 1;
 
@@ -33,6 +36,8 @@ public class GameManager : MonoBehaviour
         if (SceneManager.GetActiveScene().buildIndex == 1)
         {
             treeTrunk = GameObject.Find("Trunk").GetComponent<TreeTrunk>();
+
+            stage = GameStage.One;
         }        
 
     }
@@ -52,4 +57,12 @@ public class GameManager : MonoBehaviour
     {
         Application.Quit();
     }
+}
+
+public enum GameStage
+{
+    None, // when not in game or the like
+    One,
+    Two,
+    Three
 }
