@@ -1921,7 +1921,7 @@ MonoBehaviour:
   frontOffset: {x: 2.24684, y: 3.747}
   initialBackXY: {x: 1.825, y: 3.682}
   initialFrontXY: {x: 2.24684, y: 3.747}
-  ropeCount: 180
+  ropeCount: 750
 --- !u!4 &1035917140
 Transform:
   m_ObjectHideFlags: 0
