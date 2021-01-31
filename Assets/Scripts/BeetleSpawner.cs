@@ -10,18 +10,15 @@ public class BeetleSpawner : MonoBehaviour
     public List<GameObject> spawnedEnemies; // TODO: make this private again after debugging
     public List<Transform> spawnedEnemiesXY;
 
-    public int initialEnemiesToSpawn = 1;
-    public int maxEnemiesToSpawn = 2;
+    public int initialEnemiesToSpawn = 3;
+    public int maxEnemiesToSpawn = 5;
     public int spawnCount = 0;
     public int difficulty = 1;
 
     public GameObject player;
 
-    public float spawnVertical = 1f;
-    public float spawnHorizontal = 0f;
-
-    public float spawnDistance = 15f;
-    public float despawnDistance = -20f;
+    public float spawnDistance = -20f;
+    public float despawnDistance = 20f;
 
     private Camera cam;
 
@@ -57,7 +54,7 @@ public class BeetleSpawner : MonoBehaviour
             }
             if (cam.transform.position.y - spawnedEnemiesXY[j].position.y > despawnDistance)
             {
-                //spawnedEnemies[j].SetActive(false);
+                spawnedEnemies[j].SetActive(false);
             }
         }
     }

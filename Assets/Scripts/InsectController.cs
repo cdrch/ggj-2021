@@ -62,7 +62,7 @@ public class InsectController : MonoBehaviour
         difficulty += 0.1f;
         rotationSpeed += 1;
         xshift = Random.Range(-3f, 3f);
-        offset = new Vector2(xshift, 10f);
+        offset = new Vector2(xshift, cam.transform.position.y+10f);
         rb.MovePosition(offset);
     }
 
