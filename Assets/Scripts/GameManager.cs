@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour
     public float elevatorSpeedChangePerDifficultyLevel = 0.25f; 
     // each level, elevator speed increases by elevatorSpeed * elevatorSpeedChangePerDifficultyLevel
 
-    private Camera cam;
+    public Camera cam;
     private TreeTrunk treeTrunk;
     private PlayerController player;
 
@@ -34,6 +34,24 @@ public class GameManager : MonoBehaviour
     private bool init = false;
 
     public static float SQUIRREL_LENGTH_IN_METERS = 0.3048f;
+
+    public MusicSystem music;
+
+    public GameObject gameOverScreen;
+    public GameObject victoryScreen;
+
+
+    public void Victory()
+    {
+        victoryScreen.GetComponentInChildren<TextMeshProUGUI>().text = "You beat that other squirrel! The perfect acorn is yours!\n\nYou made it to the top. Finally.";
+        victoryScreen.SetActive(true);
+    }
+
+    public void Failure()
+    {
+        gameOverScreen.GetComponentInChildren<TextMeshProUGUI>().text = "You were beaten by that other squirrel...\n\nYou made it " + player.GetMetersOffGroundRounded() + "m to the top.";
+        gameOverScreen.SetActive(true);
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -47,6 +65,7 @@ public class GameManager : MonoBehaviour
 
         instance = this;
 
+
         if (!init)
             Init();
     }
@@ -59,8 +78,10 @@ public class GameManager : MonoBehaviour
         switch (SceneManager.GetActiveScene().buildIndex)
         {
             case 0:
+                stage = GameStage.None;
                 break;
             case 1:
+                gameOverScreen.SetActive(false);
                 treeTrunk = GameObject.Find("Trunk").GetComponent<TreeTrunk>();
                 player = GameObject.Find("Player Squirrel").GetComponent<PlayerController>();
 
@@ -69,6 +90,7 @@ public class GameManager : MonoBehaviour
                 stageText = canvas.transform.Find("Stage Text").GetComponent<TextMeshProUGUI>();
 
                 stage = GameStage.One;
+                music.TriggerMusicSwitch(MusicTrack.A_FULL);
 
                 if (treeTrunk != null && player != null && canvas != null && scoreText != null)
                     init = true;
@@ -97,9 +119,8 @@ public class GameManager : MonoBehaviour
                 {
                     stage = GameStage.Two;
                     stageText.text = "Stage: 2";
-                }
-                    
-
+                    music.TriggerMusicSwitch(MusicTrack.B_FULL);
+                }                   
                 break;
             case GameStage.Two:
                 scoreText.text = "Distance: " + player.GetMetersOffGroundRounded() + "m";
@@ -107,11 +128,13 @@ public class GameManager : MonoBehaviour
                 {
                     stage = GameStage.One;
                     stageText.text = "Stage: 1";
+                    music.TriggerMusicSwitch(MusicTrack.A_FULL);
                 }
                 else if (player.GetMetersOffGroundRounded() > transitionHeightToStage3)
                 {
                     stage = GameStage.Three;
                     stageText.text = "Stage: 3";
+                    music.TriggerMusicSwitch(MusicTrack.C_FULL);
                 }
                 break;
             case GameStage.Three:
@@ -120,6 +143,7 @@ public class GameManager : MonoBehaviour
                 {
                     stage = GameStage.Two;
                     stageText.text = "Stage: 2";
+                    music.TriggerMusicSwitch(MusicTrack.B_FULL);
                 }
                     
                 break;
@@ -128,11 +152,14 @@ public class GameManager : MonoBehaviour
 
     public void GoToMainMenu()
     {
+        stage = GameStage.None;
+        init = false;
         SceneManager.LoadScene(0);
     }
 
     public void ActivateGameScene()
     {
+        init = false;
         SceneManager.LoadScene(1);
     }
 

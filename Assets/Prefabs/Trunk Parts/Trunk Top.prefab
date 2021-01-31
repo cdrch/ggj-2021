@@ -139,6 +139,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4366768578335054552}
   - component: {fileID: 2933865026914046364}
+  - component: {fileID: 1287294388229384411}
   m_Layer: 0
   m_Name: Victory Trigger
   m_TagString: Untagged
@@ -173,7 +174,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 2.462182}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -184,8 +185,20 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 10, y: 1}
+  m_Size: {x: 10, y: 4.7987995}
   m_EdgeRadius: 0
+--- !u!114 &1287294388229384411
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2727653775665719606}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26df9fb2129e13244b180623579b7cd6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3425001324871834533
 GameObject:
   m_ObjectHideFlags: 0

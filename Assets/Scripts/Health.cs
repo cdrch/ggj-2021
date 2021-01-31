@@ -19,7 +19,10 @@ public class Health : MonoBehaviour
             return;
 
         // handle death
-        Destroy(gameObject);
+        //Destroy(gameObject);
+        GameManager.instance.stage = GameStage.None;
+        //gameObject.SetActive(false);
+        GameManager.instance.Failure();
     }
 
     public void TakeDamage(int damage)

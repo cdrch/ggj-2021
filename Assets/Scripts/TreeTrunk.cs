@@ -121,8 +121,8 @@ public class TreeTrunk : MonoBehaviour
     {
         if (cam.transform.position.y + spawnDistance >= nextOffsetYUp)
         {
-            Debug.Log(GameManager.instance.treeTotalHeight - GameManager.instance.treeTopHeight);
-            Debug.Log(nextOffsetYUp);
+            //Debug.Log(GameManager.instance.treeTotalHeight - GameManager.instance.treeTopHeight);
+            //Debug.Log(nextOffsetYUp);
             if (nextOffsetYUp * GameManager.SQUIRREL_LENGTH_IN_METERS >= GameManager.instance.treeTotalHeight - GameManager.instance.treeTopHeight)
             {
                 AddNewLayerGoingUp(true);
