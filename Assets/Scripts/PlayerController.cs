@@ -16,10 +16,13 @@ public class PlayerController : MonoBehaviour
     private float heightOffset = 0f; // for any origin resets
     private float HEIGHT_OF_TRUNK_BASE = 5.5f; // TODO: 5?
 
+    private Animator anim;
+
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        anim = GetComponentInChildren<Animator>();
     }
 
     public float GetMetersOffGroundRounded()
@@ -49,6 +52,15 @@ public class PlayerController : MonoBehaviour
     {
         // Add normalized movement to position
         Vector2 movement = movementInput.normalized * speed;
+
+        if (movement.sqrMagnitude == 0f)
+        {
+            anim.SetBool("IsMoving", false);
+        }
+        else
+        {
+            anim.SetBool("IsMoving", true);
+        }
         
         rb.MovePosition(rb.position + movement * Time.fixedDeltaTime);
     }
