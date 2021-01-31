@@ -19,7 +19,7 @@ public class GameObjectPool : MonoBehaviour
     }
 
     // Init is used instead of just Start in case script execution order is bad
-    private void Init()
+    public void Init()
     {
         nextPrefabToAdd = Random.Range(0, prefabs.Length);
         pool = new List<GameObject>();
