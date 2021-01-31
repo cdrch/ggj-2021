@@ -85,6 +85,12 @@ public class InsectController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (GameManager.instance.stage == GameStage.None) // stops movement once game is over
+        {
+            gameObject.SetActive(false);
+            return;
+        }
+
         if (Mathf.Floor(startAngle/difficulty) != Mathf.Floor(targetAngle/difficulty))
         {
             startAngle += directionOfRotation * rotationSpeed * Time.fixedDeltaTime;
