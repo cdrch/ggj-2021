@@ -14,16 +14,16 @@ public class ElevatorRopeSpawner : MonoBehaviour
     public List<Transform> frontRopesXY;
     public List<Transform> backRopesXY;
     public Rigidbody2D Elevator;
-    public float lastDespawn = 20;
+    public Vector2 lastDespawnXY = new Vector2(0f,0f);
     public Vector2 lastSpawnXY = new Vector2(0f,0f);
-    private float height = 52f / 128f;
+    private float height = 51f / 128f;
     private Vector2 ropeHeight;
     public Vector2 backOffset = new Vector2(1.825f, 3.682f);
     public Vector2 frontOffset = new Vector2(2.24684f, 3.747f);
     public Vector2 initialBackXY = new Vector2(1.825f, 3.682f);
     public Vector2 initialFrontXY = new Vector2(2.24684f, 3.747f);
 
-    public int ropeCount = 20;
+    public int ropeCount = 50;
 
     // Start is called before the first frame update
     void Start()
@@ -41,9 +41,9 @@ public class ElevatorRopeSpawner : MonoBehaviour
             initialBackXY += ropeHeight;
             initialFrontXY += ropeHeight;
             frontRopeObj = Instantiate(frontRope);
-            frontRopeObj.SetActive(false);
+            frontRopeObj.SetActive(true);
             backRopeObj = Instantiate(backRope);
-            backRopeObj.SetActive(false);
+            backRopeObj.SetActive(true);
             frontRopes.Add(frontRopeObj);
             backRopes.Add(backRopeObj);
             frontRopesXY.Add(frontRopeObj.transform);
@@ -64,18 +64,18 @@ public class ElevatorRopeSpawner : MonoBehaviour
     {
         for(int j=0; j < frontRopes.Count; j++)
         {
-            Debug.Log(Elevator.position.y);
-            if(Elevator.position.y > lastSpawnXY.y + 20 * height)
+            Debug.Log(Elevator.position.y + " > " + lastDespawnXY.y+20*height);
+            if(Elevator.position.y > frontRopesXY[j].position.y - frontRopes.Count * height && !frontRopes[j].activeSelf)
             {
-                frontRopesXY[j].position = Elevator.position + frontOffset + ropeHeight*20;
                 frontRopes[j].SetActive(true);
-                backRopesXY[j].position = Elevator.position + backOffset + ropeHeight * 20;
                 backRopes[j].SetActive(true);
             }
-            if(Elevator.position.y > backRopesXY[j].position.y - 20*height)
+            if(Elevator.position.y > frontRopesXY[j].position.y - frontOffset.y && frontRopes[j].activeSelf)
             {
                 frontRopes[j].SetActive(false);
                 backRopes[j].SetActive(false);
+                frontRopesXY[j].position = Elevator.position + frontOffset + frontRopes.Count * ropeHeight;
+                backRopesXY[j].position = Elevator.position + backOffset + backRopes.Count * ropeHeight;
             }
         }
     }
