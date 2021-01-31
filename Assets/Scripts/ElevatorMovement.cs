@@ -5,7 +5,7 @@ using UnityEngine;
 public class ElevatorMovement : MonoBehaviour
 {
 
-    public float speed = 2f;
+    public float speed = 3.5f;
     public Rigidbody2D rb;
     private Vector2 movement = new Vector2(0f, 1f);
 
