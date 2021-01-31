@@ -16,6 +16,8 @@ public class GameManager : MonoBehaviour
 
     public float transitionHeightToStage2;
     public float transitionHeightToStage3;
+    public float treeTopHeight;
+    public float treeTotalHeight;
 
     public float elevatorSpeed = 1f;
     public float elevatorSpeedChangePerDifficultyLevel = 0.25f; 
@@ -30,6 +32,8 @@ public class GameManager : MonoBehaviour
     private TextMeshProUGUI stageText;
 
     private bool init = false;
+
+    public static float SQUIRREL_LENGTH_IN_METERS = 0.3048f;
 
     // Start is called before the first frame update
     void Start()
@@ -98,7 +102,7 @@ public class GameManager : MonoBehaviour
 
                 break;
             case GameStage.Two:
-
+                scoreText.text = "Distance: " + player.GetMetersOffGroundRounded() + "m";
                 if (player.GetMetersOffGroundRounded() < transitionHeightToStage2 - 1)
                 {
                     stage = GameStage.One;
@@ -107,10 +111,11 @@ public class GameManager : MonoBehaviour
                 else if (player.GetMetersOffGroundRounded() > transitionHeightToStage3)
                 {
                     stage = GameStage.Three;
-                    stageText.text = "Stage: 1";
+                    stageText.text = "Stage: 3";
                 }
                 break;
             case GameStage.Three:
+                scoreText.text = "Distance: " + player.GetMetersOffGroundRounded() + "m";
                 if (player.GetMetersOffGroundRounded() < transitionHeightToStage3 - 1)
                 {
                     stage = GameStage.Two;

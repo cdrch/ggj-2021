@@ -405,6 +405,54 @@ MonoBehaviour:
   startingPoolSize: 0
   prefabs:
   - {fileID: 1257887358830890679, guid: 49a73ae1a72cae841bab661f04645b2c, type: 3}
+--- !u!1 &292138390
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 292138391}
+  - component: {fileID: 292138392}
+  m_Layer: 0
+  m_Name: Trunk Top Blank
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &292138391
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 292138390}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1694960778}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &292138392
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 292138390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2583003630c50c740ad0dab697351e77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  treePart: 12
+  pools: []
+  startingPoolSize: 0
+  prefabs:
+  - {fileID: 750139959999919115, guid: f389faedf116d2a4687f0eb614ec18ad, type: 3}
 --- !u!1 &321310743
 GameObject:
   m_ObjectHideFlags: 0
@@ -901,6 +949,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   treeTrunkBase: {fileID: 6424455843010435990, guid: 77e9fa83e7e2f98418dc98fa9c3590d2,
     type: 3}
+  treeTrunkTop: {fileID: 1156305804374607298, guid: 6a4fb34349d7f2049a28f28847e9c0b0,
+    type: 3}
   prefabHeight: 4.9375
   prefabWidth: 4.5859375
   prefabHalfWidth: 2.2929688
@@ -1099,6 +1149,7 @@ Transform:
   - {fileID: 2142145312}
   - {fileID: 73179762}
   - {fileID: 2121891072}
+  - {fileID: 292138391}
   m_Father: {fileID: 1388111852}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1423,6 +1474,8 @@ MonoBehaviour:
   difficultyLevel: 1
   transitionHeightToStage2: 30
   transitionHeightToStage3: 60
+  treeTopHeight: 5.71875
+  treeTotalHeight: 100
   elevatorSpeed: 1
   elevatorSpeedChangePerDifficultyLevel: 0.25
 --- !u!4 &1987344197
