@@ -35,6 +35,8 @@ public class GameManager : MonoBehaviour
 
     public static float SQUIRREL_LENGTH_IN_METERS = 0.3048f;
 
+    public MusicSystem music;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -46,6 +48,7 @@ public class GameManager : MonoBehaviour
         }
 
         instance = this;
+
 
         if (!init)
             Init();
@@ -70,6 +73,7 @@ public class GameManager : MonoBehaviour
                 stageText = canvas.transform.Find("Stage Text").GetComponent<TextMeshProUGUI>();
 
                 stage = GameStage.One;
+                music.TriggerMusicSwitch(MusicTrack.A_FULL);
 
                 if (treeTrunk != null && player != null && canvas != null && scoreText != null)
                     init = true;
@@ -98,9 +102,8 @@ public class GameManager : MonoBehaviour
                 {
                     stage = GameStage.Two;
                     stageText.text = "Stage: 2";
-                }
-                    
-
+                    music.TriggerMusicSwitch(MusicTrack.B_FULL);
+                }                   
                 break;
             case GameStage.Two:
                 scoreText.text = "Distance: " + player.GetMetersOffGroundRounded() + "m";
@@ -108,11 +111,13 @@ public class GameManager : MonoBehaviour
                 {
                     stage = GameStage.One;
                     stageText.text = "Stage: 1";
+                    music.TriggerMusicSwitch(MusicTrack.A_FULL);
                 }
                 else if (player.GetMetersOffGroundRounded() > transitionHeightToStage3)
                 {
                     stage = GameStage.Three;
                     stageText.text = "Stage: 3";
+                    music.TriggerMusicSwitch(MusicTrack.C_FULL);
                 }
                 break;
             case GameStage.Three:
@@ -121,6 +126,7 @@ public class GameManager : MonoBehaviour
                 {
                     stage = GameStage.Two;
                     stageText.text = "Stage: 2";
+                    music.TriggerMusicSwitch(MusicTrack.B_FULL);
                 }
                     
                 break;

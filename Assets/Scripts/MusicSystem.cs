@@ -36,26 +36,32 @@ public class MusicSystem : MonoBehaviour
                     break;
                 case MusicTrack.A_ACOMP:
                     source.clip = aAccomp;
+                    currrentTrack = MusicTrack.A_ACOMP;
                     source.Play();
                     break;
                 case MusicTrack.A_FULL:
                     source.clip = aFull;
+                    currrentTrack = MusicTrack.A_FULL;
                     source.Play();
                     break;
                 case MusicTrack.B_ACOMP:
                     source.clip = bAccomp;
+                    currrentTrack = MusicTrack.B_ACOMP;
                     source.Play();
                     break;
                 case MusicTrack.B_FULL:
                     source.clip = bFull;
+                    currrentTrack = MusicTrack.B_FULL;
                     source.Play();
                     break;
                 case MusicTrack.C_FULL:
                     source.clip = cFull;
+                    currrentTrack = MusicTrack.C_FULL;
                     source.Play();
                     break;
                 case MusicTrack.COMPLETE_SONG:
                     source.clip = completeSong;
+                    currrentTrack = MusicTrack.COMPLETE_SONG;
                     source.Play();
                     break;
             }
@@ -70,24 +76,33 @@ public class MusicSystem : MonoBehaviour
                 break;
             case MusicTrack.A_ACOMP:
                 nextClip = aAccomp;
+                currrentTrack = MusicTrack.A_ACOMP;
                 break;
             case MusicTrack.A_FULL:
                 nextClip = aFull;
+                currrentTrack = MusicTrack.A_FULL;
                 break;
             case MusicTrack.B_ACOMP:
                 nextClip = bAccomp;
+                currrentTrack = MusicTrack.B_ACOMP;
                 break;
             case MusicTrack.B_FULL:
                 nextClip = bFull;
+                currrentTrack = MusicTrack.B_FULL;
                 break;
             case MusicTrack.C_FULL:
                 nextClip = cFull;
+                currrentTrack = MusicTrack.C_FULL;
                 break;
             case MusicTrack.COMPLETE_SONG:
                 nextClip = completeSong;
+                currrentTrack = MusicTrack.COMPLETE_SONG;
                 break;
         }
-        StartCoroutine(ScheduleMusicSwitchAtEndOfCurrent(timeLeft));
+
+        IEnumerator coroutine = ScheduleMusicSwitchAtEndOfCurrent(timeLeft);
+
+        StartCoroutine(coroutine);
     }
 
     private IEnumerator ScheduleMusicSwitchAtEndOfCurrent(float secondsToWait)

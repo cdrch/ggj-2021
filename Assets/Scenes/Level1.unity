@@ -388,7 +388,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &102578364
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2392,6 +2392,7 @@ MonoBehaviour:
   elevatorSpeed: 1
   elevatorSpeedChangePerDifficultyLevel: 0.25
   cam: {fileID: 0}
+  music: {fileID: 45288605}
 --- !u!4 &1987344197
 Transform:
   m_ObjectHideFlags: 0
