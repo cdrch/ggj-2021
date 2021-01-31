@@ -27,6 +27,7 @@ public class GameManager : MonoBehaviour
 
     private Canvas canvas;
     private TextMeshProUGUI scoreText;
+    private TextMeshProUGUI stageText;
 
     private bool init = false;
 
@@ -61,7 +62,7 @@ public class GameManager : MonoBehaviour
 
                 canvas = GameObject.Find("Canvas").GetComponent<Canvas>();
                 scoreText = canvas.transform.Find("Distance Text").GetComponent<TextMeshProUGUI>();
-                Debug.Log(scoreText);
+                stageText = canvas.transform.Find("Stage Text").GetComponent<TextMeshProUGUI>();
 
                 stage = GameStage.One;
 
@@ -89,19 +90,33 @@ public class GameManager : MonoBehaviour
                 }
 
                 if (player.GetMetersOffGroundRounded() > transitionHeightToStage2)
+                {
                     stage = GameStage.Two;
+                    stageText.text = "Stage: 2";
+                }
+                    
 
                 break;
             case GameStage.Two:
 
                 if (player.GetMetersOffGroundRounded() < transitionHeightToStage2 - 1)
+                {
                     stage = GameStage.One;
-                if (player.GetMetersOffGroundRounded() > transitionHeightToStage3)
+                    stageText.text = "Stage: 1";
+                }
+                else if (player.GetMetersOffGroundRounded() > transitionHeightToStage3)
+                {
                     stage = GameStage.Three;
+                    stageText.text = "Stage: 1";
+                }
                 break;
             case GameStage.Three:
                 if (player.GetMetersOffGroundRounded() < transitionHeightToStage3 - 1)
-                    stage = GameStage.One;
+                {
+                    stage = GameStage.Two;
+                    stageText.text = "Stage: 2";
+                }
+                    
                 break;
         }
     }
