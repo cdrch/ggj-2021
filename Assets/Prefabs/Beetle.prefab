@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 340627566518011811}
   - component: {fileID: 340627566518011810}
+  - component: {fileID: 6124946610617194921}
   m_Layer: 0
   m_Name: PlayerCollider
   m_TagString: Untagged
@@ -56,11 +57,26 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.00989148, y: 0.8961377}
-      - {x: -0.47625768, y: 0.50684965}
-      - {x: -0.46413976, y: -0.6516184}
-      - {x: 0.47403154, y: -0.65482885}
-      - {x: 0.47625777, y: 0.47717506}
+    - - {x: 0.0026400592, y: 0.8707576}
+      - {x: -0.41824597, y: 0.514101}
+      - {x: -0.39783865, y: -0.30646282}
+      - {x: -0.30098206, y: -0.5682267}
+      - {x: 0.3072481, y: -0.5678114}
+      - {x: 0.40778187, y: -0.29728}
+      - {x: 0.4146204, y: 0.4953037}
+--- !u!114 &6124946610617194921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 340627566518011812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73d9a968286548a4da77e4f7e5f52334, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 1
 --- !u!1 &340627567095152328
 GameObject:
   m_ObjectHideFlags: 0
@@ -207,7 +223,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 159b920cfa3471a4fadb8be7bf3de5ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
+  difficulty: 1
 --- !u!95 &340627567095152322
 Animator:
   serializedVersion: 3

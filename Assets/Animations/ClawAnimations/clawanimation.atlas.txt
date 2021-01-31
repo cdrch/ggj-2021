@@ -1,0 +1,41 @@
+
+clawanimation.png
+size: 1012,705
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Arm1
+  rotate: false
+  xy: 703, 85
+  size: 104, 227
+  orig: 104, 227
+  offset: 0, 0
+  index: -1
+Arm2
+  rotate: true
+  xy: 878, 183
+  size: 129, 131
+  orig: 129, 131
+  offset: 0, 0
+  index: -1
+Arm3
+  rotate: false
+  xy: 778, 3
+  size: 108, 309
+  orig: 108, 309
+  offset: 0, 0
+  index: -1
+Splash
+  rotate: false
+  xy: 703, 314
+  size: 234, 389
+  orig: 234, 389
+  offset: 0, 0
+  index: -1
+trunkhole
+  rotate: false
+  xy: 2, 32
+  size: 699, 671
+  orig: 699, 671
+  offset: 0, 0
+  index: -1

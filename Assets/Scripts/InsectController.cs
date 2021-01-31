@@ -15,8 +15,8 @@ public class InsectController : MonoBehaviour
     private float skewX = 1f;
     private float startAngle = 0f;
     private float targetAngle = 0f;
-    private float toDegrees = 180 / Mathf.PI;
     private int directionOfRotation = 1;
+    private readonly float toDegrees = 180 / Mathf.PI;
 
     private Vector2 movement;
 
@@ -39,7 +39,6 @@ public class InsectController : MonoBehaviour
         rb.SetRotation(targetAngle);
 
         startAngle = targetAngle;
-
     }
 
     void Start()
@@ -74,13 +73,12 @@ public class InsectController : MonoBehaviour
 
         if (!collision.otherCollider.CompareTag("Player"))
         {
-            
             startAngle = (Mathf.Atan2(movement.y, movement.x) * toDegrees) - 90;
             Redirect();
             wallcheck.enabled = false;
-
+            return;
         }
-    }
+    }    
 
     private void Redirect()
     {
