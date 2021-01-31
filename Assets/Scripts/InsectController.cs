@@ -74,8 +74,10 @@ public class InsectController : MonoBehaviour
             rotationSpeed += 1;
             xshift = Random.Range(-2f, 2f);
             offset = new Vector2(xshift, cam.transform.position.y + 10f);
-            rb.MovePosition(offset);
+            rb.position = offset;
             Debug.Log(offset);
+            Debug.Log(rb);
+            Debug.Log(rb.position);
         }
         Init();
     }
