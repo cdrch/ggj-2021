@@ -42,6 +42,11 @@ public class GameManager : MonoBehaviour
 
     }
 
+    public void Failure()
+    {
+
+    }
+
     // Start is called before the first frame update
     void Start()
     {
