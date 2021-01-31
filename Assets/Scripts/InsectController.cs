@@ -62,7 +62,7 @@ public class InsectController : MonoBehaviour
 
             Redirect();
 
-            rb.SetRotation(targetAngle);
+            rb.rotation = targetAngle;
 
             startAngle = targetAngle;
         }
@@ -75,9 +75,9 @@ public class InsectController : MonoBehaviour
             xshift = Random.Range(-2f, 2f);
             offset = new Vector2(xshift, cam.transform.position.y + 10f);
             rb.position = offset;
-            Debug.Log(offset);
-            Debug.Log(rb);
-            Debug.Log(rb.position);
+            Redirect();
+            rb.rotation = targetAngle;
+            Debug.Log(rb.position + " Cam: " + cam.transform.position.y + " offset: " + offset);
         }
         Init();
     }
@@ -85,15 +85,16 @@ public class InsectController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (Mathf.Floor(startAngle) != Mathf.Floor(targetAngle))
+        if (Mathf.Floor(startAngle/difficulty) != Mathf.Floor(targetAngle/difficulty))
         {
             startAngle += directionOfRotation * rotationSpeed * Time.fixedDeltaTime;
             rb.SetRotation(startAngle);
+            Debug.Log(startAngle + " target: " + targetAngle);
         }
         else
         {
             rb.MovePosition(rb.position + movement * difficulty * Time.fixedDeltaTime);
-            if (Mathf.Floor(startAngle) == Mathf.Floor(targetAngle))
+            if (Mathf.Floor(startAngle/difficulty) == Mathf.Floor(targetAngle/difficulty))
             {
                 wallcheck.enabled = true;
             }

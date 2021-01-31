@@ -18,8 +18,8 @@ public class BeetleSpawner : MonoBehaviour
 
     public GameObject player;
 
-    public float spawnDistance = -20f;
-    public float despawnDistance = 20f;
+    public float spawnDistance = 20f;
+    public float despawnDistance = 15f;
 
     private Camera cam;
 
@@ -51,13 +51,14 @@ public class BeetleSpawner : MonoBehaviour
     private void CheckForNewBeetle()
     {
         for(int j=0; j < spawnedEnemiesXY.Count; j++) {
-            if (cam.transform.position.y - spawnedEnemiesXY[j].position.y > spawnDistance)
+            //Debug.Log(cam.transform.position.y + " - " + despawnDistance + " > " + spawnedEnemiesXY[j].position.y);
+            if (cam.transform.position.y - spawnedEnemiesXY[j].position.y > spawnDistance && !spawnedEnemies[j].activeInHierarchy)
             {
-                spawnedEnemies[j].SetActive(true);
                 spawnCount += 1;
-                spawnedEnemiesXY[j] = cam.transform;
+                spawnedEnemiesXY[j].position = cam.transform.position + new Vector3(0f,15f,10f);
+                spawnedEnemies[j].SetActive(true);
             }
-            if (cam.transform.position.y - spawnedEnemiesXY[j].position.y > despawnDistance)
+            if (cam.transform.position.y - despawnDistance > spawnedEnemiesXY[j].position.y)
             {
                 spawnedEnemies[j].SetActive(false);
             }
