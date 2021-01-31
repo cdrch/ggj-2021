@@ -38,11 +38,13 @@ public class GameManager : MonoBehaviour
     public MusicSystem music;
 
     public GameObject gameOverScreen;
+    public GameObject victoryScreen;
 
 
     public void Victory()
     {
-        
+        victoryScreen.GetComponentInChildren<TextMeshProUGUI>().text = "You beat that other squirrel! The perfect acorn is yours!\n\nYou made it to the top. Finally.";
+        victoryScreen.SetActive(true);
     }
 
     public void Failure()
