@@ -4,33 +4,64 @@ using UnityEngine;
 
 public class BeetleSpawner : MonoBehaviour
 {
+    
     public GameObject beetle;
-    public GameObjectPool pool;
+    public static GameObjectPool pool;
+    public List<GameObject> spawnedEnemies; // TODO: make this private again after debugging
+    public List<Transform> spawnedEnemiesXY;
 
-    public float spawnVertical = 1f;
-    public float spawnHorizontal = 0f;
-
-    public float spawnDistance;
-    public float despawnDistance;
-
-    public int initialEnemiesToSpawn = 1;
-    public int maxEnemiesToSpawn = 2;
+    public int initialEnemiesToSpawn = 3;
+    public int maxEnemiesToSpawn = 5;
     public int spawnCount = 0;
+    public int difficulty = 1;
+    private bool Initialized = false;
 
-    public List<Transform> spawnedEnemies; // TODO: make this private again after debugging
+    public GameObject player;
 
-    private float offsetY = 0f;
-    private float offsetX = 0f;
+    public float spawnDistance = -20f;
+    public float despawnDistance = 20f;
+
+    private Camera cam;
 
     // Start is called before the first frame update
     void Start()
     {
-        spawnedEnemies = new List<Transform>();
+        cam = Camera.main;
+        spawnedEnemies = new List<GameObject>();
+        GameObject enemyBeetle;
+        for(int i=0; i < initialEnemiesToSpawn; i++)
+        {
+            enemyBeetle = Instantiate(beetle);
+            enemyBeetle.SetActive(false);
+            spawnedEnemies.Add(enemyBeetle);
+            spawnedEnemiesXY.Add(enemyBeetle.transform);
+        }
+        Initialized = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (Initialized)
+        {
+            CheckForNewBeetle();
+        }
     }
+
+    private void CheckForNewBeetle()
+    {
+        for(int j=0; j < spawnedEnemiesXY.Count; j++) {
+            if (cam.transform.position.y - spawnedEnemiesXY[j].position.y > spawnDistance)
+            {
+                spawnedEnemies[j].SetActive(true);
+                spawnCount += 1;
+                spawnedEnemiesXY[j] = cam.transform;
+            }
+            if (cam.transform.position.y - spawnedEnemiesXY[j].position.y > despawnDistance)
+            {
+                spawnedEnemies[j].SetActive(false);
+            }
+        }
+    }
+
 }
