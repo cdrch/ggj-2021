@@ -40,7 +40,8 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Move();
+        if (GameManager.instance.stage != GameStage.None)
+            Move();
     }
 
     private void GetInput()
